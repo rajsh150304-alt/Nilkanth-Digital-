@@ -1,48 +1,61 @@
 import Layout from "@/components/Layout";
 import PageHero from "@/components/PageHero";
 import Breadcrumb from "@/components/Breadcrumb";
-import { Camera, Monitor, Wifi, Shield, Wrench, Laptop } from "lucide-react";
+import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+import cctvDome from "@/assets/cctv-dome.jpg";
+import cctvBullet from "@/assets/cctv-bullet.jpg";
+import cctvRepair from "@/assets/cctv-repair.jpg";
+import laptopRepair from "@/assets/laptop-repair.jpg";
+import desktopRepair from "@/assets/desktop-repair.jpg";
+import networking from "@/assets/networking.jpg";
+import products from "@/assets/products.jpg";
+import heroBg from "@/assets/hero-bg.jpg";
+import team from "@/assets/team.jpg";
 
 const galleryItems = [
-  { icon: Camera, title: "CCTV Installation - Office Complex", desc: "32-camera IP CCTV system installed at a corporate office" },
-  { icon: Shield, title: "Home Security Setup", desc: "Complete home security with 8 cameras and smart monitoring" },
-  { icon: Monitor, title: "Control Room Setup", desc: "Multi-monitor surveillance control room for warehouse" },
-  { icon: Wifi, title: "Office Network Installation", desc: "Enterprise-grade network setup for 50+ workstations" },
-  { icon: Laptop, title: "Laptop Repair Workshop", desc: "Our state-of-the-art laptop repair and diagnostics lab" },
-  { icon: Wrench, title: "CCTV Maintenance", desc: "Routine maintenance of outdoor camera systems" },
-  { icon: Camera, title: "Retail Store CCTV", desc: "Dome camera installation for retail chain stores" },
-  { icon: Shield, title: "Factory Security", desc: "Perimeter security system for manufacturing facility" },
-  { icon: Monitor, title: "Server Room Setup", desc: "Network server and storage rack installation" },
+  { title: "CCTV Control Room Setup", desc: "Multi-monitor surveillance control room", img: heroBg },
+  { title: "Dome Camera Installation", desc: "Professional dome camera for office security", img: cctvDome },
+  { title: "Outdoor Bullet Camera", desc: "Weatherproof bullet camera installation", img: cctvBullet },
+  { title: "CCTV Repair Workshop", desc: "Our technician repairing a security camera", img: cctvRepair },
+  { title: "Laptop Repair Lab", desc: "State-of-the-art laptop diagnostics and repair", img: laptopRepair },
+  { title: "Desktop Hardware Repair", desc: "PC hardware maintenance and upgrades", img: desktopRepair },
+  { title: "Server Room Installation", desc: "Professional networking equipment setup", img: networking },
+  { title: "Security Products Display", desc: "Our showroom with latest CCTV equipment", img: products },
+  { title: "Our Expert Team", desc: "Certified technicians ready to serve you", img: team },
 ];
 
 const Gallery = () => {
+  const ref = useScrollReveal();
+
   return (
     <Layout>
-      <PageHero title="Our Gallery" subtitle="View our completed projects and installations" />
+      <PageHero title="Our Gallery" subtitle="View our completed projects, installations, and workshop" />
       <div className="container mx-auto px-4">
         <Breadcrumb items={[{ label: "Gallery" }]} />
       </div>
 
-      <section className="py-16 lg:py-24">
-        <div className="container mx-auto px-4">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {galleryItems.map((item, i) => (
-              <div
-                key={i}
-                className="group relative overflow-hidden rounded-xl border border-border bg-card hover-lift"
-              >
-                <div className="aspect-video bg-muted flex items-center justify-center">
-                  <item.icon className="w-16 h-16 text-primary/20 group-hover:text-primary/40 transition-colors" />
+      <div ref={ref}>
+        <section className="py-16 lg:py-24">
+          <div className="container mx-auto px-4">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {galleryItems.map((item, i) => (
+                <div
+                  key={i}
+                  className={`group rounded-xl border border-border bg-card overflow-hidden hover-lift reveal reveal-delay-${(i % 5) + 1}`}
+                >
+                  <div className="img-overlay aspect-[4/3]">
+                    <img src={item.img} alt={item.title} className="w-full h-full object-cover" loading="lazy" />
+                    <div className="absolute bottom-0 left-0 right-0 p-4 z-10">
+                      <h3 className="font-heading font-semibold text-sm text-foreground">{item.title}</h3>
+                      <p className="text-muted-foreground text-xs mt-1">{item.desc}</p>
+                    </div>
+                  </div>
                 </div>
-                <div className="p-6">
-                  <h3 className="font-heading font-semibold text-sm mb-1">{item.title}</h3>
-                  <p className="text-muted-foreground text-xs">{item.desc}</p>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </Layout>
   );
 };

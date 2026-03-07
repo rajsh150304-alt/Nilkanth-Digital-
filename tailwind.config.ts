@@ -51,9 +51,9 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        "section-dark": {
-          DEFAULT: "hsl(var(--section-dark))",
-          foreground: "hsl(var(--section-dark-foreground))",
+        "section-alt": {
+          DEFAULT: "hsl(var(--section-alt))",
+          foreground: "hsl(var(--section-alt-foreground))",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
