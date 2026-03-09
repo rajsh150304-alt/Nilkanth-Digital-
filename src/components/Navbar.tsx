@@ -149,11 +149,11 @@ const Navbar = () => {
 
         {/* Mobile Nav */}
         <div
-          className={`lg:hidden overflow-hidden transition-all duration-300 ${
-            isOpen ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"
+          className={`lg:hidden overflow-y-auto transition-all duration-300 ${
+            isOpen ? "max-h-[80vh] opacity-100" : "max-h-0 opacity-0"
           }`}
         >
-          <div className="pb-4 border-t border-border/30">
+          <div className="pb-4 border-t border-border/30 bg-background">
             {mainLinks.map((link) => (
               <Link key={link.to} to={link.to} className={`block px-4 py-2.5 text-sm font-medium ${isActive(link.to) ? "text-primary" : "text-foreground/70"}`}>
                 {link.label}
