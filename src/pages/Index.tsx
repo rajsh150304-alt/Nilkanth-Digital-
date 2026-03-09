@@ -1,14 +1,11 @@
 import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import { Shield, Camera, Monitor, Laptop, Wifi, Wrench, Star, Phone, CheckCircle, ArrowRight, Zap } from "lucide-react";
-import { useEffect, useMemo, useState } from "react";
-import heroBgModern from "@/assets/hero-bg-modern.jpg";
+import { Shield, Camera, Monitor, Laptop, Wifi, Wrench, Star, Phone, CheckCircle, ArrowRight, Play, Zap } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 import cctvDome from "@/assets/cctv-dome.jpg";
 import laptopRepairImg from "@/assets/laptop-repair.jpg";
 import networkingImg from "@/assets/networking.jpg";
-import { getCallHref } from "@/lib/contact";
 
 const services = [
   { icon: Camera, title: "CCTV Installation", desc: "Professional installation of bullet, dome, wireless & outdoor cameras", to: "/cctv-installation", img: cctvDome },
@@ -34,18 +31,6 @@ const stats = [
 
 const Index = () => {
   const scrollRef = useScrollReveal();
-  const [entered, setEntered] = useState(false);
-  const callHref = useMemo(() => getCallHref(), []);
-
-  const heroShowcase = useMemo(
-    () => services.filter((s) => s.img).slice(0, 3),
-    [],
-  );
-
-  useEffect(() => {
-    const t = window.setTimeout(() => setEntered(true), 60);
-    return () => window.clearTimeout(t);
-  }, []);
 
   return (
     <Layout>
@@ -53,135 +38,50 @@ const Index = () => {
       <section className="relative min-h-screen flex items-center overflow-hidden">
         {/* Background */}
         <div className="absolute inset-0">
-          <img
-            src={heroBgModern}
-            alt="Technology background"
-            className="w-full h-full object-cover hero-kenburns"
-            loading="eager"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/40" />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/60" />
+          <img src={heroBg} alt="Technology background" className="w-full h-full object-cover" loading="eager" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/50" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/50" />
         </div>
-
-        {/* Effects */}
-        <div className="absolute inset-0 grid-pattern opacity-25" aria-hidden="true" />
-        <div className="absolute inset-0 hero-spotlight" aria-hidden="true" />
-        <div className="absolute inset-0 hero-vignette" aria-hidden="true" />
-        <div className="glow-orb glow-orb-primary w-[520px] h-[520px] -top-56 -right-56 opacity-35" aria-hidden="true" />
-        <div className="glow-orb glow-orb-blue w-[420px] h-[420px] bottom-0 left-1/4 opacity-25" aria-hidden="true" />
+        
+        {/* Grid pattern overlay */}
+        <div className="absolute inset-0 grid-pattern opacity-30" />
+        
+        {/* Glow orbs */}
+        <div className="glow-orb glow-orb-primary w-[500px] h-[500px] -top-48 -right-48" />
+        <div className="glow-orb glow-orb-blue w-[400px] h-[400px] bottom-0 left-1/4" />
 
         <div className="container mx-auto px-4 relative z-10 py-32">
-          <div className="grid lg:grid-cols-12 gap-10 items-center">
-            {/* Copy */}
-            <div className="lg:col-span-7">
-              <div
-                className={`inline-flex items-center gap-2 glass-card rounded-full px-4 py-2 text-sm mb-6 motion-safe:transition-all motion-safe:duration-700 ${
-                  entered ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-                }`}
-              >
-                <div className="w-2 h-2 rounded-full bg-primary motion-safe:animate-pulse" />
-                <span className="text-foreground/80">Nilkanth Digital • Security + IT Experts</span>
-              </div>
-
-              <h1
-                className={`text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-foreground leading-[1.05] mb-6 motion-safe:transition-all motion-safe:duration-700 motion-safe:delay-100 ${
-                  entered ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-                }`}
-              >
-                Build a safer space.
-                <br />
-                Run faster tech.
-                <br />
-                <span className="text-gradient">One team.</span>
-              </h1>
-
-              <p
-                className={`text-lg text-muted-foreground mb-8 leading-relaxed max-w-xl motion-safe:transition-all motion-safe:duration-700 motion-safe:delay-200 ${
-                  entered ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-                }`}
-              >
-                CCTV installation, repairs, networking and annual maintenance—clean work, quick response, and transparent pricing.
-              </p>
-
-              <div
-                className={`flex flex-wrap gap-4 motion-safe:transition-all motion-safe:duration-700 motion-safe:delay-300 ${
-                  entered ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-                }`}
-              >
-                <Link
-                  to="/contact"
-                  className="group inline-flex items-center gap-2 bg-primary text-primary-foreground px-7 py-3.5 rounded-lg font-semibold btn-shine hover:shadow-[0_0_40px_hsl(var(--primary)/0.35)] transition-all duration-300"
-                >
-                  Get Free Quote
-                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                </Link>
-                <a
-                  href={callHref}
-                  className="group inline-flex items-center gap-2 glass-card px-7 py-3.5 rounded-lg font-semibold hover:bg-primary/10 transition-all duration-300"
-                >
-                  <Phone className="w-4 h-4 text-primary" />
-                  Call Now
-                </a>
-              </div>
-
-              <div
-                className={`mt-8 flex flex-wrap gap-2 text-sm motion-safe:transition-all motion-safe:duration-700 motion-safe:delay-500 ${
-                  entered ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-                }`}
-              >
-                {[
-                  "Same-day support",
-                  "Genuine parts",
-                  "Clean cabling",
-                  "Warranty service",
-                ].map((t) => (
-                  <span key={t} className="glass-card px-3 py-1.5 rounded-full text-foreground/75">
-                    {t}
-                  </span>
-                ))}
-              </div>
+          <div className="max-w-2xl">
+            <div className="inline-flex items-center gap-2 glass-card rounded-full px-4 py-2 text-sm mb-6 animate-in">
+              <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+              <span className="text-foreground/80">Trusted by 1000+ customers</span>
             </div>
-
-            {/* Showcase */}
-            <div
-              className={`lg:col-span-5 motion-safe:transition-all motion-safe:duration-700 motion-safe:delay-200 ${
-                entered ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-              }`}
-            >
-              <div className="rounded-2xl overflow-hidden gradient-border glass-card">
-                <div className="p-4 sm:p-5">
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="text-sm font-semibold">Popular services</div>
-                    <div className="text-xs text-muted-foreground">Tap to explore</div>
-                  </div>
-
-                  <div className="space-y-3">
-                    {heroShowcase.map((s) => (
-                      <Link
-                        key={s.title}
-                        to={s.to}
-                        className="group flex items-center gap-4 rounded-xl border border-border bg-card/40 hover:bg-card transition-colors overflow-hidden"
-                      >
-                        <div className="h-16 w-20 flex-shrink-0 img-overlay">
-                          {/* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */}
-                          <img src={s.img!} alt={s.title} className="h-full w-full object-cover" loading="lazy" />
-                        </div>
-                        <div className="py-3 pr-4">
-                          <div className="flex items-center gap-2">
-                            <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary transition-colors">
-                              <s.icon className="w-4 h-4 text-primary group-hover:text-primary-foreground transition-colors" />
-                            </div>
-                            <div className="font-heading font-semibold group-hover:text-primary transition-colors">
-                              {s.title}
-                            </div>
-                          </div>
-                          <div className="text-xs text-muted-foreground mt-1 line-clamp-2">{s.desc}</div>
-                        </div>
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              </div>
+            
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-foreground leading-[1.1] mb-6 animate-in animate-in-delay-1">
+              Your Complete{" "}
+              <span className="text-gradient">Security</span> &{" "}
+              <span className="text-gradient">IT</span> Solutions
+            </h1>
+            
+            <p className="text-lg text-muted-foreground mb-8 leading-relaxed max-w-xl animate-in animate-in-delay-2">
+              Professional CCTV installation, computer repair, networking, and AMC services. Protecting your home and business with cutting-edge technology.
+            </p>
+            
+            <div className="flex flex-wrap gap-4 animate-in animate-in-delay-3">
+              <Link
+                to="/contact"
+                className="group inline-flex items-center gap-2 bg-primary text-primary-foreground px-7 py-3.5 rounded-lg font-semibold btn-shine hover:shadow-[0_0_40px_hsla(0,80%,55%,0.4)] transition-all duration-300"
+              >
+                Get Free Quote
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+              <a
+                href="tel:+919876543210"
+                className="group inline-flex items-center gap-2 glass-card px-7 py-3.5 rounded-lg font-semibold hover:bg-primary/10 transition-all duration-300"
+              >
+                <Phone className="w-4 h-4 text-primary" />
+                Call Now
+              </a>
             </div>
           </div>
         </div>
@@ -189,16 +89,9 @@ const Index = () => {
         {/* Floating stats */}
         <div className="absolute bottom-0 left-0 right-0">
           <div className="container mx-auto px-4 pb-8">
-            <div
-              className={`grid grid-cols-2 md:grid-cols-4 gap-4 motion-safe:transition-all motion-safe:duration-700 motion-safe:delay-[650ms] ${
-                entered ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-              }`}
-            >
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 animate-in animate-in-delay-4">
               {stats.map((stat) => (
-                <div
-                  key={stat.label}
-                  className="group text-center p-5 rounded-xl glass-card gradient-border hover:scale-105 transition-transform duration-300"
-                >
+                <div key={stat.label} className="group text-center p-5 rounded-xl glass-card gradient-border hover:scale-105 transition-transform duration-300">
                   <stat.icon className="w-5 h-5 text-primary mx-auto mb-2 group-hover:scale-110 transition-transform" />
                   <div className="text-2xl md:text-3xl font-heading font-bold text-foreground">{stat.num}</div>
                   <div className="text-xs text-muted-foreground mt-1">{stat.label}</div>
@@ -213,7 +106,7 @@ const Index = () => {
         {/* Services Section */}
         <section className="py-20 lg:py-28 relative overflow-hidden">
           <div className="glow-orb glow-orb-primary w-[300px] h-[300px] top-20 -left-32 opacity-20" />
-
+          
           <div className="container mx-auto px-4 relative">
             <div className="text-center mb-14 reveal">
               <div className="red-line mx-auto mb-4" />
@@ -221,7 +114,7 @@ const Index = () => {
               <h2 className="text-3xl md:text-4xl font-heading font-bold mt-2 mb-4">Our Services</h2>
               <p className="text-muted-foreground max-w-lg mx-auto">Comprehensive technology solutions for homes and businesses</p>
             </div>
-
+            
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {services.map((s, i) => (
                 <Link
@@ -257,7 +150,7 @@ const Index = () => {
         <section className="py-20 lg:py-28 section-alt relative overflow-hidden">
           <div className="absolute inset-0 grid-pattern opacity-20" />
           <div className="glow-orb glow-orb-blue w-[400px] h-[400px] top-0 right-0 opacity-20" />
-
+          
           <div className="container mx-auto px-4 relative">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <div className="reveal">
@@ -296,14 +189,14 @@ const Index = () => {
         {/* Testimonials */}
         <section className="py-20 lg:py-28 relative overflow-hidden">
           <div className="glow-orb glow-orb-primary w-[300px] h-[300px] bottom-0 left-1/2 opacity-15" />
-
+          
           <div className="container mx-auto px-4 relative">
             <div className="text-center mb-14 reveal">
               <div className="red-line mx-auto mb-4" />
               <span className="text-primary font-semibold text-sm uppercase tracking-widest">Testimonials</span>
               <h2 className="text-3xl md:text-4xl font-heading font-bold mt-2">What Our Customers Say</h2>
             </div>
-
+            
             <div className="grid md:grid-cols-3 gap-6">
               {testimonials.map((t, i) => (
                 <div key={t.name} className={`p-7 rounded-xl border border-border bg-card hover-lift reveal reveal-delay-${i + 1}`}>
@@ -333,25 +226,27 @@ const Index = () => {
           <div className="absolute inset-0 hero-gradient" />
           <div className="absolute inset-0 grid-pattern opacity-20" />
           <div className="glow-orb glow-orb-primary w-[500px] h-[500px] -bottom-48 left-1/2 -translate-x-1/2" />
-
+          
           <div className="container mx-auto px-4 text-center relative z-10">
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">Ready to Get Started?</h2>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
+              Ready to Get Started?
+            </h2>
             <p className="text-muted-foreground mb-8 max-w-lg mx-auto">
-              Contact us today for a free consultation and quote. We&apos;re here to help!
+              Contact us today for a free consultation and quote. We're here to help!
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link
                 to="/contact"
-                className="bg-primary text-primary-foreground px-8 py-4 rounded-lg font-semibold btn-shine hover:shadow-[0_0_40px_hsl(var(--primary)/0.35)] transition-all duration-300"
+                className="bg-primary text-primary-foreground px-8 py-4 rounded-lg font-semibold btn-shine hover:shadow-[0_0_40px_hsla(0,80%,55%,0.4)] transition-all duration-300"
               >
                 Contact Us
               </Link>
               <a
-                href={callHref}
+                href="tel:+919876543210"
                 className="glass-card px-8 py-4 rounded-lg font-semibold hover:bg-primary/10 transition-all duration-300 inline-flex items-center gap-2"
               >
                 <Phone className="w-4 h-4 text-primary" />
-                Call Now
+                +91 98765 43210
               </a>
             </div>
           </div>
@@ -362,4 +257,3 @@ const Index = () => {
 };
 
 export default Index;
-

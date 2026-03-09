@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, Youtube, ArrowRight } from "lucide-react";
-import { CONTACT_PHONE_DISPLAY, getCallHref } from "@/lib/contact";
 
 const services = [
   { to: "/cctv-installation", label: "CCTV Installation" },
@@ -19,13 +18,11 @@ const quickLinks = [
 ];
 
 const Footer = () => {
-  const callHref = getCallHref();
-
   return (
     <footer className="relative bg-card border-t border-border/50 overflow-hidden">
       <div className="absolute inset-0 grid-pattern opacity-10" />
       <div className="glow-orb glow-orb-primary w-[300px] h-[300px] -bottom-32 left-1/4 opacity-10" />
-
+      
       <div className="container mx-auto px-4 py-16 relative">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div>
@@ -47,11 +44,7 @@ const Footer = () => {
                 { Icon: Instagram, href: "#" },
                 { Icon: Youtube, href: "#" },
               ].map(({ Icon, href }, i) => (
-                <a
-                  key={i}
-                  href={href}
-                  className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-300"
-                >
+                <a key={i} href={href} className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-300">
                   <Icon className="w-4 h-4" />
                 </a>
               ))}
@@ -89,11 +82,11 @@ const Footer = () => {
           <div>
             <h3 className="font-heading font-semibold mb-5">Contact Info</h3>
             <div className="space-y-4">
-              <a href={callHref} className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors">
+              <a href="tel:+919876543210" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors">
                 <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
                   <Phone className="w-4 h-4 text-primary" />
                 </div>
-                {CONTACT_PHONE_DISPLAY}
+                +91 98765 43210
               </a>
               <a href="mailto:info@nilkanthdigital.com" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors">
                 <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
@@ -113,7 +106,7 @@ const Footer = () => {
 
         <div className="border-t border-border/50 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
           <p>© {new Date().getFullYear()} Nilkanth Digital. All rights reserved.</p>
-          <p>Designed for quality service</p>
+          <p>Designed with ❤️ for quality service</p>
         </div>
       </div>
     </footer>
@@ -121,4 +114,3 @@ const Footer = () => {
 };
 
 export default Footer;
-
