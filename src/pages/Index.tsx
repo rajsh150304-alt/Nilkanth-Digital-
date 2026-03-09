@@ -28,36 +28,36 @@ const Index = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section className="relative min-h-screen flex items-center overflow-hidden">
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <img src={heroBg} alt="CCTV and technology setup" className="w-full h-full object-cover" loading="eager" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[hsla(0,0%,0%,0.92)] via-[hsla(0,0%,0%,0.7)] to-[hsla(0,0%,0%,0.5)]" />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/30" />
         </div>
-        <div className="container mx-auto px-4 relative z-10 py-32">
-          <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 glow-border rounded-full px-4 py-1.5 text-sm text-foreground/80 mb-6 animate-in">
-              <Shield className="w-4 h-4 text-primary" />
+        <div className="container mx-auto px-4 relative z-10 py-28">
+          <div className="max-w-xl">
+            <div className="inline-flex items-center gap-2 border border-border rounded-full px-4 py-1.5 text-sm text-muted-foreground mb-5 animate-in">
+              <Shield className="w-3.5 h-3.5 text-primary" />
               Trusted Technology Partner
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-7xl font-heading font-bold text-foreground leading-[1.1] mb-6 animate-in animate-in-delay-1">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground leading-[1.15] mb-5 animate-in animate-in-delay-1">
               Your Complete{" "}
-              <span className="text-gradient">Security</span> & IT Solutions
+              <span className="text-primary">Security</span> & IT Solutions
             </h1>
-            <p className="text-lg text-muted-foreground mb-10 leading-relaxed max-w-lg animate-in animate-in-delay-2">
-              Professional CCTV installation, computer repair, networking, and AMC services. Protecting your home and business with cutting-edge technology.
+            <p className="text-base text-muted-foreground mb-8 leading-relaxed max-w-md animate-in animate-in-delay-2">
+              Professional CCTV installation, computer repair, networking, and AMC services for homes and businesses.
             </p>
-            <div className="flex flex-wrap gap-4 animate-in animate-in-delay-3">
+            <div className="flex flex-wrap gap-3 animate-in animate-in-delay-3">
               <Link
                 to="/contact"
-                className="group inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-xl font-semibold hover:shadow-[0_0_30px_hsla(0,85%,50%,0.4)] transition-all duration-300"
+                className="group inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-semibold text-sm hover:bg-primary/90 transition-colors duration-200"
               >
                 Get Free Quote
-                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
               </Link>
               <a
                 href="tel:+919876543210"
-                className="inline-flex items-center gap-2 glow-border text-foreground px-8 py-4 rounded-xl font-semibold hover:bg-primary/10 transition-all duration-300"
+                className="inline-flex items-center gap-2 border border-border text-foreground px-6 py-3 rounded-lg font-semibold text-sm hover:bg-card transition-colors duration-200"
               >
                 <Phone className="w-4 h-4 text-primary" />
                 Call Now
@@ -66,19 +66,19 @@ const Index = () => {
           </div>
         </div>
 
-        {/* Floating stats */}
-        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background to-transparent">
-          <div className="container mx-auto px-4 pb-8">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 animate-in animate-in-delay-4">
+        {/* Stats bar */}
+        <div className="absolute bottom-0 left-0 right-0">
+          <div className="container mx-auto px-4 pb-6">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 animate-in animate-in-delay-4">
               {[
                 { num: "10+", label: "Years Experience" },
                 { num: "1000+", label: "Happy Customers" },
                 { num: "5000+", label: "Projects Done" },
                 { num: "24/7", label: "Support" },
               ].map((stat) => (
-                <div key={stat.label} className="text-center p-4 rounded-xl glow-border bg-card/50 backdrop-blur-sm">
-                  <div className="text-2xl md:text-3xl font-heading font-bold text-primary">{stat.num}</div>
-                  <div className="text-xs text-muted-foreground mt-1">{stat.label}</div>
+                <div key={stat.label} className="text-center p-3 rounded-lg bg-card/60 backdrop-blur-sm border border-border/50">
+                  <div className="text-xl md:text-2xl font-heading font-bold text-primary">{stat.num}</div>
+                  <div className="text-xs text-muted-foreground">{stat.label}</div>
                 </div>
               ))}
             </div>
@@ -88,38 +88,38 @@ const Index = () => {
 
       <div ref={scrollRef}>
         {/* Services */}
-        <section className="py-20 lg:py-28 bg-background">
+        <section className="py-16 lg:py-24">
           <div className="container mx-auto px-4">
-            <div className="text-center mb-16 reveal">
+            <div className="text-center mb-12 reveal">
               <div className="red-line mx-auto mb-4" />
               <span className="text-primary font-semibold text-sm uppercase tracking-widest">What We Offer</span>
-              <h2 className="text-3xl md:text-4xl font-heading font-bold mt-3 mb-4">Our Services</h2>
-              <p className="text-muted-foreground max-w-xl mx-auto">Comprehensive technology solutions for homes and businesses</p>
+              <h2 className="text-2xl md:text-3xl font-heading font-bold mt-2 mb-3">Our Services</h2>
+              <p className="text-muted-foreground text-sm max-w-md mx-auto">Comprehensive technology solutions for homes and businesses</p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
               {services.map((s, i) => (
                 <Link
                   key={s.title}
                   to={s.to}
-                  className={`group rounded-xl border border-border bg-card overflow-hidden hover-lift card-shine reveal reveal-delay-${i % 5 + 1}`}
+                  className={`group rounded-lg border border-border bg-card overflow-hidden hover-lift card-shine reveal reveal-delay-${i % 5 + 1}`}
                 >
                   {s.img ? (
-                    <div className="img-overlay h-48">
+                    <div className="img-overlay h-44">
                       <img src={s.img} alt={s.title} className="w-full h-full object-cover" loading="lazy" />
                     </div>
                   ) : (
-                    <div className="h-48 bg-secondary/50 flex items-center justify-center shimmer">
-                      <s.icon className="w-16 h-16 text-primary/20" />
+                    <div className="h-44 bg-secondary/30 flex items-center justify-center">
+                      <s.icon className="w-12 h-12 text-primary/15" />
                     </div>
                   )}
-                  <div className="p-6">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary transition-colors duration-300">
-                        <s.icon className="w-5 h-5 text-primary group-hover:text-primary-foreground transition-colors duration-300" />
+                  <div className="p-5">
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary transition-colors duration-200">
+                        <s.icon className="w-4 h-4 text-primary group-hover:text-primary-foreground transition-colors duration-200" />
                       </div>
-                      <h3 className="font-heading font-semibold">{s.title}</h3>
+                      <h3 className="font-heading font-semibold text-sm">{s.title}</h3>
                     </div>
-                    <p className="text-muted-foreground text-sm leading-relaxed">{s.desc}</p>
+                    <p className="text-muted-foreground text-xs leading-relaxed">{s.desc}</p>
                   </div>
                 </Link>
               ))}
@@ -128,16 +128,16 @@ const Index = () => {
         </section>
 
         {/* Why Choose Us */}
-        <section className="py-20 lg:py-28 section-alt">
+        <section className="py-16 lg:py-24 section-alt">
           <div className="container mx-auto px-4">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="reveal">
                 <div className="red-line mb-4" />
                 <span className="text-primary font-semibold text-sm uppercase tracking-widest">Why Nilkanth Digital</span>
-                <h2 className="text-3xl md:text-4xl font-heading font-bold mt-3 mb-8">
-                  Trusted by <span className="text-gradient">1000+</span> Customers
+                <h2 className="text-2xl md:text-3xl font-heading font-bold mt-2 mb-6">
+                  Trusted by <span className="text-primary">1000+</span> Customers
                 </h2>
-                <div className="space-y-4">
+                <div className="space-y-3">
                   {[
                     "10+ years of industry experience",
                     "Certified & trained technicians",
@@ -147,14 +147,14 @@ const Index = () => {
                     "24/7 customer support available",
                   ].map((item, i) => (
                     <div key={item} className={`flex items-center gap-3 reveal reveal-delay-${i % 5 + 1}`}>
-                      <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
-                      <span className="text-foreground/80">{item}</span>
+                      <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
+                      <span className="text-foreground/80 text-sm">{item}</span>
                     </div>
                   ))}
                 </div>
               </div>
               <div className="reveal reveal-delay-2">
-                <div className="rounded-2xl overflow-hidden glow-border">
+                <div className="rounded-lg overflow-hidden border border-border">
                   <img src={heroBg} alt="Our professional setup" className="w-full aspect-video object-cover" loading="lazy" />
                 </div>
               </div>
@@ -163,23 +163,23 @@ const Index = () => {
         </section>
 
         {/* Testimonials */}
-        <section className="py-20 lg:py-28 bg-background">
+        <section className="py-16 lg:py-24">
           <div className="container mx-auto px-4">
-            <div className="text-center mb-16 reveal">
+            <div className="text-center mb-12 reveal">
               <div className="red-line mx-auto mb-4" />
               <span className="text-primary font-semibold text-sm uppercase tracking-widest">Testimonials</span>
-              <h2 className="text-3xl md:text-4xl font-heading font-bold mt-3">What Our Customers Say</h2>
+              <h2 className="text-2xl md:text-3xl font-heading font-bold mt-2">What Our Customers Say</h2>
             </div>
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-3 gap-5">
               {testimonials.map((t, i) => (
-                <div key={t.name} className={`p-8 rounded-xl border border-border bg-card hover-lift reveal reveal-delay-${i + 1}`}>
-                  <div className="flex gap-1 mb-4">
+                <div key={t.name} className={`p-6 rounded-lg border border-border bg-card hover-lift reveal reveal-delay-${i + 1}`}>
+                  <div className="flex gap-0.5 mb-3">
                     {Array.from({ length: t.rating }).map((_, j) => (
-                      <Star key={j} className="w-4 h-4 fill-primary text-primary" />
+                      <Star key={j} className="w-3.5 h-3.5 fill-primary text-primary" />
                     ))}
                   </div>
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-6">"{t.text}"</p>
-                  <div className="border-t border-border pt-4">
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-5">"{t.text}"</p>
+                  <div className="border-t border-border pt-3">
                     <div className="font-semibold text-sm">{t.name}</div>
                     <div className="text-muted-foreground text-xs">{t.role}</div>
                   </div>
@@ -190,26 +190,25 @@ const Index = () => {
         </section>
 
         {/* CTA */}
-        <section className="py-20 relative overflow-hidden reveal">
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-primary/10 to-transparent" />
-          <div className="absolute inset-0 hero-gradient opacity-90" />
+        <section className="py-16 relative overflow-hidden reveal">
+          <div className="absolute inset-0 hero-gradient" />
           <div className="container mx-auto px-4 text-center relative z-10">
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
+            <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-3">
               Need Our Services?
             </h2>
-            <p className="text-muted-foreground mb-8 max-w-lg mx-auto">
+            <p className="text-muted-foreground text-sm mb-6 max-w-md mx-auto">
               Contact us today for a free consultation and quote.
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
+            <div className="flex flex-wrap justify-center gap-3">
               <Link
                 to="/contact"
-                className="bg-primary text-primary-foreground px-8 py-4 rounded-xl font-semibold hover:shadow-[0_0_30px_hsla(0,85%,50%,0.4)] transition-all duration-300"
+                className="bg-primary text-primary-foreground px-6 py-3 rounded-lg font-semibold text-sm hover:bg-primary/90 transition-colors duration-200"
               >
                 Contact Us
               </Link>
               <a
                 href="tel:+919876543210"
-                className="glow-border text-foreground px-8 py-4 rounded-xl font-semibold hover:bg-primary/10 transition-all duration-300 inline-flex items-center gap-2"
+                className="border border-border text-foreground px-6 py-3 rounded-lg font-semibold text-sm hover:bg-card transition-colors duration-200 inline-flex items-center gap-2"
               >
                 <Phone className="w-4 h-4 text-primary" />
                 +91 98765 43210
