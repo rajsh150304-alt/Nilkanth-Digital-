@@ -269,8 +269,8 @@
 }
 
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 0 0 hsla(142, 70%, 45%, 0.5); }
-  50% { box-shadow: 0 0 0 12px hsla(142, 70%, 45%, 0); }
+  0%, 100% { box-shadow: 0 0 0 0 hsl(var(--whatsapp) / 0.45); }
+  50% { box-shadow: 0 0 0 12px hsl(var(--whatsapp) / 0); }
 }
 
 .pulse-glow {
