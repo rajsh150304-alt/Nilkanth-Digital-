@@ -18,6 +18,9 @@
     --primary: 0 80% 55%;
     --primary-foreground: 0 0% 100%;
 
+    --whatsapp: 142 70% 45%;
+    --whatsapp-foreground: 0 0% 100%;
+
     --secondary: 220 15% 12%;
     --secondary-foreground: 0 0% 90%;
 
@@ -266,8 +269,8 @@
 }
 
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 0 0 hsla(142, 70%, 45%, 0.5); }
-  50% { box-shadow: 0 0 0 12px hsla(142, 70%, 45%, 0); }
+  0%, 100% { box-shadow: 0 0 0 0 hsl(var(--whatsapp) / 0.45); }
+  50% { box-shadow: 0 0 0 12px hsl(var(--whatsapp) / 0); }
 }
 
 .pulse-glow {
@@ -320,6 +323,52 @@
   75% { transform: translate(-10px, -10px) rotate(270deg); }
 }
 
-.particle {
-  animation: particleFloat 20s ease-in-out infinite;
-}
+  .particle {
+    animation: particleFloat 20s ease-in-out infinite;
+  }
+
+  /* Hero motion layers */
+  .hero-spotlight {
+    background:
+      radial-gradient(800px 420px at 15% 10%, hsl(var(--primary) / 0.22), transparent 60%),
+      radial-gradient(700px 360px at 85% 75%, hsl(var(--primary) / 0.18), transparent 60%),
+      radial-gradient(900px 520px at 50% 40%, hsl(var(--foreground) / 0.06), transparent 65%);
+    mix-blend-mode: screen;
+    opacity: 0.9;
+    animation: spotlightSweep 14s ease-in-out infinite;
+  }
+
+  .hero-vignette {
+    background: radial-gradient(1200px 600px at 50% 35%, transparent 35%, hsl(var(--background) / 0.92) 100%);
+    opacity: 0.9;
+  }
+
+  .hero-kenburns {
+    transform: scale(1.06);
+    animation: heroKenBurns 18s ease-in-out infinite;
+    will-change: transform;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-spotlight,
+    .hero-kenburns {
+      animation: none;
+    }
+  }
+
+  @keyframes spotlightSweep {
+    0%, 100% {
+      transform: translate3d(0, 0, 0);
+      filter: blur(0px);
+    }
+    50% {
+      transform: translate3d(-2%, 2%, 0);
+      filter: blur(1px);
+    }
+  }
+
+  @keyframes heroKenBurns {
+    0%, 100% { transform: scale(1.06) translate3d(0, 0, 0); }
+    50% { transform: scale(1.12) translate3d(-1.5%, 1.5%, 0); }
+  }
+
