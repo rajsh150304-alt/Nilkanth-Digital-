@@ -12,7 +12,11 @@ const serviceLinks = [
   { to: "/cctv-repair", label: "CCTV Repair & AMC" },
   { to: "/laptop-repair", label: "Laptop Repair" },
   { to: "/desktop-repair", label: "Desktop Repair" },
-  { to: "/networking", label: "Networking & Security" },
+  { to: "/smart-home", label: "Smart Home Automation" },
+  { to: "/fire-safety", label: "Fire & Safety" },
+  { to: "/server-nas", label: "Server & NAS Setup" },
+  { to: "/firewall", label: "Firewall & Networking" },
+  { to: "/networking", label: "Wi-Fi & Network Setup" },
 ];
 
 const otherLinks = [
@@ -46,7 +50,7 @@ const Navbar = () => {
   };
 
   const handleMouseLeave = () => {
-    timeoutRef.current = setTimeout(() => setServiceOpen(false), 200);
+    timeoutRef.current = setTimeout(() => setServiceOpen(false), 250);
   };
 
   const isActive = (to: string) => location.pathname === to;
@@ -54,9 +58,7 @@ const Navbar = () => {
 
   const linkClass = (to: string) =>
     `px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
-      isActive(to)
-        ? "text-primary"
-        : "text-foreground/70 hover:text-primary"
+      isActive(to) ? "text-primary" : "text-foreground/70 hover:text-primary"
     }`;
 
   return (
@@ -69,7 +71,6 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group">
             <div className="w-9 h-9 rounded-lg bg-primary flex items-center justify-center font-heading font-bold text-primary-foreground text-lg">
               N
@@ -80,7 +81,6 @@ const Navbar = () => {
             </div>
           </Link>
 
-          {/* Desktop Nav */}
           <div className="hidden lg:flex items-center gap-1">
             {mainLinks.map((link) => (
               <Link key={link.to} to={link.to} className={linkClass(link.to)}>
@@ -88,7 +88,6 @@ const Navbar = () => {
               </Link>
             ))}
 
-            {/* Services Dropdown - hover based */}
             <div
               ref={dropdownRef}
               className="relative"
@@ -108,12 +107,12 @@ const Navbar = () => {
                   serviceOpen ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-2 pointer-events-none"
                 }`}
               >
-                <div className="w-52 bg-card border border-border rounded-lg shadow-xl py-1.5">
+                <div className="w-60 bg-card border border-border rounded-lg shadow-xl py-1.5">
                   {serviceLinks.map((link) => (
                     <Link
                       key={link.to}
                       to={link.to}
-                      className={`block px-4 py-2 text-sm transition-colors ${
+                      className={`block px-4 py-2.5 text-sm transition-colors ${
                         isActive(link.to) ? "text-primary bg-primary/5" : "text-foreground/70 hover:text-primary hover:bg-primary/5"
                       }`}
                     >
@@ -131,7 +130,6 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* CTA */}
           <div className="flex items-center gap-3">
             <a
               href="tel:+919876543210"
@@ -152,7 +150,7 @@ const Navbar = () => {
         {/* Mobile Nav */}
         <div
           className={`lg:hidden overflow-hidden transition-all duration-300 ${
-            isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+            isOpen ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"
           }`}
         >
           <div className="pb-4 border-t border-border/30">
