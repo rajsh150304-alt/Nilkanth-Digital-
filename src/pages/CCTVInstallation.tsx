@@ -3,7 +3,7 @@ import PageHero from "@/components/PageHero";
 import Breadcrumb from "@/components/Breadcrumb";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { Link } from "react-router-dom";
-import { Camera, Shield, Wifi, Eye, ChevronRight } from "lucide-react";
+import { Camera, Shield, Wifi, Eye, ChevronRight, CheckCircle } from "lucide-react";
 import cctvDome from "@/assets/cctv-dome.jpg";
 import cctvBullet from "@/assets/cctv-bullet.jpg";
 import heroBg from "@/assets/hero-bg.jpg";
@@ -19,7 +19,7 @@ const steps = [
   { num: "01", title: "Site Survey", desc: "Our experts visit your location to assess security needs" },
   { num: "02", title: "Custom Plan", desc: "We design a tailored CCTV solution for your requirements" },
   { num: "03", title: "Installation", desc: "Professional installation with minimal disruption" },
-  { num: "04", title: "Testing & Training", desc: "Complete system testing and user training provided" },
+  { num: "04", title: "Testing", desc: "Complete system testing and user training provided" },
 ];
 
 const CCTVInstallation = () => {
@@ -33,7 +33,9 @@ const CCTVInstallation = () => {
       </div>
 
       <div ref={ref}>
-        <section className="py-16 lg:py-24">
+        <section className="py-20 lg:py-28 relative overflow-hidden">
+          <div className="glow-orb glow-orb-primary w-[300px] h-[300px] top-20 -right-32 opacity-20" />
+          
           <div className="container mx-auto px-4">
             <div className="text-center mb-14 reveal">
               <div className="red-line mx-auto mb-4" />
@@ -44,20 +46,25 @@ const CCTVInstallation = () => {
               {cameraTypes.map((cam, i) => (
                 <div key={cam.title} className={`rounded-xl border border-border bg-card overflow-hidden hover-lift card-shine reveal reveal-delay-${i + 1}`}>
                   {cam.img ? (
-                    <div className="img-overlay h-52">
+                    <div className="img-overlay h-56">
                       <img src={cam.img} alt={cam.title} className="w-full h-full object-cover" loading="lazy" />
                     </div>
                   ) : (
-                    <div className="h-52 bg-secondary/50 flex items-center justify-center shimmer">
-                      <cam.icon className="w-16 h-16 text-primary/20" />
+                    <div className="h-56 bg-gradient-to-br from-secondary to-background flex items-center justify-center shimmer">
+                      <cam.icon className="w-20 h-20 text-primary/15" />
                     </div>
                   )}
                   <div className="p-6">
-                    <h3 className="font-heading font-semibold text-xl mb-2">{cam.title}</h3>
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                        <cam.icon className="w-5 h-5 text-primary" />
+                      </div>
+                      <h3 className="font-heading font-semibold text-xl">{cam.title}</h3>
+                    </div>
                     <p className="text-muted-foreground text-sm leading-relaxed mb-4">{cam.desc}</p>
                     <div className="flex flex-wrap gap-2">
                       {cam.features.map((f) => (
-                        <span key={f} className="text-xs px-3 py-1 rounded-full bg-primary/10 text-primary font-medium border border-primary/20">{f}</span>
+                        <span key={f} className="text-xs px-3 py-1.5 rounded-full bg-primary/10 text-primary font-medium border border-primary/20">{f}</span>
                       ))}
                     </div>
                   </div>
@@ -67,8 +74,10 @@ const CCTVInstallation = () => {
           </div>
         </section>
 
-        <section className="py-16 lg:py-24 section-alt">
-          <div className="container mx-auto px-4">
+        <section className="py-20 lg:py-28 section-alt relative overflow-hidden">
+          <div className="absolute inset-0 grid-pattern opacity-15" />
+          
+          <div className="container mx-auto px-4 relative">
             <div className="text-center mb-14 reveal">
               <div className="red-line mx-auto mb-4" />
               <span className="text-primary font-semibold text-sm uppercase tracking-widest">Our Process</span>
@@ -76,8 +85,8 @@ const CCTVInstallation = () => {
             </div>
             <div className="grid md:grid-cols-4 gap-6">
               {steps.map((step, i) => (
-                <div key={step.num} className={`text-center p-8 rounded-xl glow-border bg-card hover-lift reveal reveal-delay-${i + 1}`}>
-                  <div className="text-5xl font-heading font-bold text-primary/20 mb-4">{step.num}</div>
+                <div key={step.num} className={`text-center p-8 rounded-xl gradient-border bg-card hover-lift reveal reveal-delay-${i + 1}`}>
+                  <div className="text-5xl font-heading font-bold text-gradient mb-4">{step.num}</div>
                   <h3 className="font-heading font-semibold mb-2">{step.title}</h3>
                   <p className="text-muted-foreground text-sm">{step.desc}</p>
                 </div>
@@ -86,13 +95,15 @@ const CCTVInstallation = () => {
           </div>
         </section>
 
-        <section className="py-16 relative overflow-hidden reveal">
+        <section className="py-20 relative overflow-hidden reveal">
           <div className="absolute inset-0 hero-gradient" />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-transparent" />
+          <div className="absolute inset-0 grid-pattern opacity-15" />
+          <div className="glow-orb glow-orb-primary w-[400px] h-[400px] -bottom-32 left-1/2 -translate-x-1/2 opacity-30" />
+          
           <div className="container mx-auto px-4 text-center relative z-10">
-            <h2 className="text-3xl font-heading font-bold mb-4">Ready to Secure Your Property?</h2>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">Ready to Secure Your Property?</h2>
             <p className="text-muted-foreground mb-8">Get a free site survey and quotation today</p>
-            <Link to="/contact" className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-xl font-semibold hover:shadow-[0_0_30px_hsla(0,85%,50%,0.4)] transition-all duration-300">
+            <Link to="/contact" className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-lg font-semibold btn-shine hover:shadow-[0_0_40px_hsla(0,80%,55%,0.4)] transition-all duration-300">
               Get Free Quote <ChevronRight className="w-4 h-4" />
             </Link>
           </div>
