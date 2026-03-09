@@ -35,7 +35,10 @@ const Gallery = () => {
       </div>
 
       <div ref={ref}>
-        <section className="py-16 lg:py-24">
+        <section className="py-20 lg:py-28 relative overflow-hidden">
+          <div className="glow-orb glow-orb-primary w-[300px] h-[300px] top-20 -right-32 opacity-20" />
+          <div className="glow-orb glow-orb-blue w-[300px] h-[300px] bottom-40 -left-32 opacity-20" />
+          
           <div className="container mx-auto px-4">
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {galleryItems.map((item, i) => (
@@ -45,9 +48,9 @@ const Gallery = () => {
                 >
                   <div className="img-overlay aspect-[4/3]">
                     <img src={item.img} alt={item.title} className="w-full h-full object-cover" loading="lazy" />
-                    <div className="absolute bottom-0 left-0 right-0 p-4 z-10">
-                      <h3 className="font-heading font-semibold text-sm text-foreground">{item.title}</h3>
-                      <p className="text-muted-foreground text-xs mt-1">{item.desc}</p>
+                    <div className="absolute bottom-0 left-0 right-0 p-5 z-10">
+                      <h3 className="font-heading font-semibold text-foreground">{item.title}</h3>
+                      <p className="text-muted-foreground text-sm mt-1">{item.desc}</p>
                     </div>
                   </div>
                 </div>

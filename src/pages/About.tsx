@@ -2,7 +2,7 @@ import Layout from "@/components/Layout";
 import PageHero from "@/components/PageHero";
 import Breadcrumb from "@/components/Breadcrumb";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import { Target, Eye, Award, Users, CheckCircle } from "lucide-react";
+import { Target, Eye, Award, Users, CheckCircle, Zap, Clock, Shield } from "lucide-react";
 import teamImg from "@/assets/team.jpg";
 
 const About = () => {
@@ -16,7 +16,9 @@ const About = () => {
       </div>
 
       <div ref={ref}>
-        <section className="py-16 lg:py-24">
+        <section className="py-20 lg:py-28 relative overflow-hidden">
+          <div className="glow-orb glow-orb-blue w-[400px] h-[400px] -top-32 -right-32 opacity-20" />
+          
           <div className="container mx-auto px-4">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <div className="reveal">
@@ -32,16 +34,18 @@ const About = () => {
                   Our team of certified technicians is dedicated to providing fast, reliable, and affordable technology solutions for homes and businesses.
                 </p>
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-5 reveal reveal-delay-1">
                 {[
                   { icon: Award, title: "Certified Experts", desc: "Trained & certified technicians" },
                   { icon: Users, title: "1000+ Clients", desc: "Trusted by businesses & homes" },
                   { icon: Target, title: "Quality Service", desc: "Premium products & workmanship" },
-                  { icon: Eye, title: "24/7 Support", desc: "Always available when you need us" },
+                  { icon: Clock, title: "24/7 Support", desc: "Always available when you need us" },
                 ].map((item, i) => (
                   <div key={item.title} className={`p-6 rounded-xl border border-border bg-card text-center hover-lift card-shine reveal reveal-delay-${i + 1}`}>
-                    <item.icon className="w-8 h-8 text-primary mx-auto mb-3" />
-                    <h3 className="font-heading font-semibold text-sm mb-1">{item.title}</h3>
+                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                      <item.icon className="w-6 h-6 text-primary" />
+                    </div>
+                    <h3 className="font-heading font-semibold mb-1">{item.title}</h3>
                     <p className="text-muted-foreground text-xs">{item.desc}</p>
                   </div>
                 ))}
@@ -50,18 +54,25 @@ const About = () => {
           </div>
         </section>
 
-        <section className="py-16 lg:py-24 section-alt">
-          <div className="container mx-auto px-4">
+        <section className="py-20 lg:py-28 section-alt relative overflow-hidden">
+          <div className="absolute inset-0 grid-pattern opacity-15" />
+          <div className="glow-orb glow-orb-primary w-[300px] h-[300px] bottom-0 left-0 opacity-20" />
+          
+          <div className="container mx-auto px-4 relative">
             <div className="grid md:grid-cols-2 gap-8">
-              <div className="p-10 rounded-xl glow-border bg-card hover-lift reveal">
-                <Target className="w-10 h-10 text-primary mb-4" />
+              <div className="p-10 rounded-xl gradient-border bg-card hover-lift reveal">
+                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
+                  <Target className="w-7 h-7 text-primary" />
+                </div>
                 <h3 className="text-2xl font-heading font-bold mb-4">Our Mission</h3>
                 <p className="text-muted-foreground leading-relaxed">
                   To provide world-class technology solutions that protect, connect, and empower our customers. We strive to deliver exceptional service quality at competitive prices.
                 </p>
               </div>
-              <div className="p-10 rounded-xl glow-border bg-card hover-lift reveal reveal-delay-1">
-                <Eye className="w-10 h-10 text-primary mb-4" />
+              <div className="p-10 rounded-xl gradient-border bg-card hover-lift reveal reveal-delay-1">
+                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
+                  <Eye className="w-7 h-7 text-primary" />
+                </div>
                 <h3 className="text-2xl font-heading font-bold mb-4">Our Vision</h3>
                 <p className="text-muted-foreground leading-relaxed">
                   To become the most trusted name in technology services, known for innovation, reliability, and customer satisfaction across the region.
@@ -71,21 +82,26 @@ const About = () => {
           </div>
         </section>
 
-        <section className="py-16 lg:py-24">
+        <section className="py-20 lg:py-28 relative overflow-hidden">
           <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl font-heading font-bold mb-10 reveal">Our Service Guarantee</h2>
-            <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            <div className="reveal mb-10">
+              <div className="red-line mx-auto mb-4" />
+              <h2 className="text-3xl font-heading font-bold">Our Service Guarantee</h2>
+            </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
               {[
-                "100% satisfaction guaranteed on all services",
-                "Warranty on repairs and installations",
-                "Transparent pricing with no hidden charges",
-                "Same-day service for urgent requests",
-                "Genuine parts and equipment used",
-                "Post-service support and follow-up",
+                { icon: Shield, text: "100% satisfaction guaranteed on all services" },
+                { icon: Zap, text: "Same-day service for urgent requests" },
+                { icon: Award, text: "Warranty on repairs and installations" },
+                { icon: CheckCircle, text: "Transparent pricing with no hidden charges" },
+                { icon: Target, text: "Genuine parts and equipment used" },
+                { icon: Users, text: "Post-service support and follow-up" },
               ].map((item, i) => (
-                <div key={item} className={`flex items-start gap-3 text-left reveal reveal-delay-${(i % 3) + 1}`}>
-                  <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                  <span className="text-sm text-muted-foreground">{item}</span>
+                <div key={item.text} className={`flex items-start gap-4 p-5 rounded-xl border border-border bg-card hover-lift reveal reveal-delay-${(i % 3) + 1}`}>
+                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <item.icon className="w-5 h-5 text-primary" />
+                  </div>
+                  <span className="text-sm text-foreground/80 text-left">{item.text}</span>
                 </div>
               ))}
             </div>
