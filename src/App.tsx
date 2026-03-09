@@ -12,6 +12,10 @@ import CCTVRepair from "./pages/CCTVRepair";
 import LaptopRepair from "./pages/LaptopRepair";
 import DesktopRepair from "./pages/DesktopRepair";
 import Networking from "./pages/Networking";
+import SmartHome from "./pages/SmartHome";
+import FireSafety from "./pages/FireSafety";
+import ServerNAS from "./pages/ServerNAS";
+import Firewall from "./pages/Firewall";
 import Products from "./pages/Products";
 import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
@@ -42,6 +46,10 @@ const App = () => (
           <Route path="/laptop-repair" element={<LaptopRepair />} />
           <Route path="/desktop-repair" element={<DesktopRepair />} />
           <Route path="/networking" element={<Networking />} />
+          <Route path="/smart-home" element={<SmartHome />} />
+          <Route path="/fire-safety" element={<FireSafety />} />
+          <Route path="/server-nas" element={<ServerNAS />} />
+          <Route path="/firewall" element={<Firewall />} />
           <Route path="/products" element={<Products />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact" element={<Contact />} />

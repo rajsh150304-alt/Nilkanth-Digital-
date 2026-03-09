@@ -1,29 +1,35 @@
 import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import { Shield, Camera, Monitor, Laptop, Wifi, Wrench, Star, Phone, CheckCircle, ArrowRight, Play, Zap } from "lucide-react";
+import { Shield, Camera, Monitor, Laptop, Wifi, Wrench, Star, Phone, CheckCircle, ArrowRight, Zap, Home, Flame, Server, Lock } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 import cctvDome from "@/assets/cctv-dome.jpg";
 import laptopRepairImg from "@/assets/laptop-repair.jpg";
 import networkingImg from "@/assets/networking.jpg";
+import smartHomeImg from "@/assets/smart-home.jpg";
+import fireSafetyImg from "@/assets/fire-safety.jpg";
+import serverNasImg from "@/assets/server-nas.jpg";
+import firewallImg from "@/assets/firewall.jpg";
 
 const services = [
-  { icon: Camera, title: "CCTV Installation", desc: "Professional installation of bullet, dome, wireless & outdoor cameras", to: "/cctv-installation", img: cctvDome },
+  { icon: Camera, title: "CCTV Installation", desc: "Professional bullet, dome, wireless & outdoor camera installation", to: "/cctv-installation", img: cctvDome },
   { icon: Wrench, title: "CCTV Repair & AMC", desc: "Expert repair, maintenance and annual contracts", to: "/cctv-repair" },
-  { icon: Laptop, title: "Laptop Repair", desc: "Screen, battery, motherboard & software repairs", to: "/laptop-repair", img: laptopRepairImg },
-  { icon: Monitor, title: "Desktop Repair", desc: "Complete desktop computer repair solutions", to: "/desktop-repair" },
-  { icon: Wifi, title: "Networking", desc: "Network setup, troubleshooting & security", to: "/networking", img: networkingImg },
-  { icon: Shield, title: "AMC Services", desc: "Annual maintenance for worry-free IT", to: "/contact" },
+  { icon: Laptop, title: "PC/Laptop Sales & Repair", desc: "Screen, battery, motherboard & software repairs for all brands", to: "/laptop-repair", img: laptopRepairImg },
+  { icon: Home, title: "Smart Home Automation", desc: "Smart lighting, locks, climate control & voice assistants", to: "/smart-home", img: smartHomeImg },
+  { icon: Flame, title: "Fire & Safety Solutions", desc: "Fire alarms, extinguishers, smoke detectors & safety audits", to: "/fire-safety", img: fireSafetyImg },
+  { icon: Server, title: "Server & NAS Setup", desc: "Server installation, NAS storage, backup & cloud integration", to: "/server-nas", img: serverNasImg },
+  { icon: Lock, title: "Firewall & Security", desc: "Firewall installation, VPN, web filtering & network protection", to: "/firewall", img: firewallImg },
+  { icon: Wifi, title: "Networking & Wi-Fi", desc: "Network setup, troubleshooting, Wi-Fi & mesh solutions", to: "/networking", img: networkingImg },
 ];
 
 const testimonials = [
-  { name: "Rajesh Kumar", role: "Business Owner", text: "Nilkanth Digital installed CCTV at my shop. Excellent work and very professional team!", rating: 5 },
-  { name: "Priya Sharma", role: "Home Owner", text: "Got my laptop repaired here. Fast service and reasonable pricing. Highly recommend!", rating: 5 },
-  { name: "Amit Patel", role: "Office Manager", text: "Their AMC service keeps our office IT running smoothly. Great support team!", rating: 5 },
+  { name: "Rajesh Kumar", role: "Business Owner, Surat", text: "Nilkanth Digital installed CCTV and fire safety systems at our factory. Excellent work and very professional team!", rating: 5 },
+  { name: "Priya Sharma", role: "Home Owner", text: "Got our home fully automated with smart lighting and locks. The team was knowledgeable and pricing was fair!", rating: 5 },
+  { name: "Amit Patel", role: "Office Manager", text: "Their AMC service and server setup keeps our office IT running smoothly. Great support team!", rating: 5 },
 ];
 
 const stats = [
-  { num: "10+", label: "Years Experience", icon: Zap },
+  { num: "7+", label: "Years Experience", icon: Zap },
   { num: "1000+", label: "Happy Customers", icon: Star },
   { num: "5000+", label: "Projects Done", icon: CheckCircle },
   { num: "24/7", label: "Support Available", icon: Phone },
@@ -34,19 +40,14 @@ const Index = () => {
 
   return (
     <Layout>
-      {/* Hero Section */}
+      {/* Hero */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
-        {/* Background */}
         <div className="absolute inset-0">
-          <img src={heroBg} alt="Technology background" className="w-full h-full object-cover" loading="eager" />
+          <img src={heroBg} alt="Nilkanth Digital IT Solutions" className="w-full h-full object-cover" loading="eager" />
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/50" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/50" />
         </div>
-        
-        {/* Grid pattern overlay */}
         <div className="absolute inset-0 grid-pattern opacity-30" />
-        
-        {/* Glow orbs */}
         <div className="glow-orb glow-orb-primary w-[500px] h-[500px] -top-48 -right-48" />
         <div className="glow-orb glow-orb-blue w-[400px] h-[400px] bottom-0 left-1/4" />
 
@@ -54,19 +55,19 @@ const Index = () => {
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 glass-card rounded-full px-4 py-2 text-sm mb-6 animate-in">
               <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-              <span className="text-foreground/80">Trusted by 1000+ customers</span>
+              <span className="text-foreground/80">Trusted IT & Security Partner Since 2018 • Surat</span>
             </div>
-            
+
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-foreground leading-[1.1] mb-6 animate-in animate-in-delay-1">
               Your Complete{" "}
-              <span className="text-gradient">Security</span> &{" "}
-              <span className="text-gradient">IT</span> Solutions
+              <span className="text-gradient">IT</span> &{" "}
+              <span className="text-gradient">Security</span> Solutions
             </h1>
-            
+
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed max-w-xl animate-in animate-in-delay-2">
-              Professional CCTV installation, computer repair, networking, and AMC services. Protecting your home and business with cutting-edge technology.
+              Professional CCTV installation, smart home automation, fire safety, server setup, networking, and computer services. Protecting homes, offices, schools, factories & businesses across Surat.
             </p>
-            
+
             <div className="flex flex-wrap gap-4 animate-in animate-in-delay-3">
               <Link
                 to="/contact"
@@ -86,7 +87,6 @@ const Index = () => {
           </div>
         </div>
 
-        {/* Floating stats */}
         <div className="absolute bottom-0 left-0 right-0">
           <div className="container mx-auto px-4 pb-8">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 animate-in animate-in-delay-4">
@@ -103,42 +103,42 @@ const Index = () => {
       </section>
 
       <div ref={scrollRef}>
-        {/* Services Section */}
+        {/* Services */}
         <section className="py-20 lg:py-28 relative overflow-hidden">
           <div className="glow-orb glow-orb-primary w-[300px] h-[300px] top-20 -left-32 opacity-20" />
-          
+
           <div className="container mx-auto px-4 relative">
             <div className="text-center mb-14 reveal">
               <div className="red-line mx-auto mb-4" />
               <span className="text-primary font-semibold text-sm uppercase tracking-widest">What We Offer</span>
               <h2 className="text-3xl md:text-4xl font-heading font-bold mt-2 mb-4">Our Services</h2>
-              <p className="text-muted-foreground max-w-lg mx-auto">Comprehensive technology solutions for homes and businesses</p>
+              <p className="text-muted-foreground max-w-lg mx-auto">Comprehensive IT & security solutions for homes, offices, and businesses</p>
             </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {services.map((s, i) => (
                 <Link
                   key={s.title}
                   to={s.to}
-                  className={`group rounded-xl border border-border bg-card overflow-hidden hover-lift card-shine reveal reveal-delay-${i % 5 + 1}`}
+                  className={`group rounded-xl border border-border bg-card overflow-hidden hover-lift card-shine reveal reveal-delay-${(i % 5) + 1}`}
                 >
                   {s.img ? (
-                    <div className="img-overlay h-48">
+                    <div className="img-overlay h-44">
                       <img src={s.img} alt={s.title} className="w-full h-full object-cover" loading="lazy" />
                     </div>
                   ) : (
-                    <div className="h-48 bg-gradient-to-br from-secondary to-background flex items-center justify-center shimmer">
+                    <div className="h-44 bg-gradient-to-br from-secondary to-background flex items-center justify-center shimmer">
                       <s.icon className="w-16 h-16 text-primary/20" />
                     </div>
                   )}
-                  <div className="p-6">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
-                        <s.icon className="w-5 h-5 text-primary group-hover:text-primary-foreground transition-colors" />
+                  <div className="p-5">
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
+                        <s.icon className="w-4 h-4 text-primary group-hover:text-primary-foreground transition-colors" />
                       </div>
-                      <h3 className="font-heading font-semibold group-hover:text-primary transition-colors">{s.title}</h3>
+                      <h3 className="font-heading font-semibold text-sm group-hover:text-primary transition-colors">{s.title}</h3>
                     </div>
-                    <p className="text-muted-foreground text-sm leading-relaxed">{s.desc}</p>
+                    <p className="text-muted-foreground text-xs leading-relaxed">{s.desc}</p>
                   </div>
                 </Link>
               ))}
@@ -150,7 +150,7 @@ const Index = () => {
         <section className="py-20 lg:py-28 section-alt relative overflow-hidden">
           <div className="absolute inset-0 grid-pattern opacity-20" />
           <div className="glow-orb glow-orb-blue w-[400px] h-[400px] top-0 right-0 opacity-20" />
-          
+
           <div className="container mx-auto px-4 relative">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <div className="reveal">
@@ -161,14 +161,14 @@ const Index = () => {
                 </h2>
                 <div className="space-y-4">
                   {[
-                    "10+ years of industry experience",
-                    "Certified & trained technicians",
-                    "Quick response & same-day service",
-                    "Affordable & transparent pricing",
+                    "Serving Surat since 2018 with 7+ years experience",
+                    "Certified & trained technicians for all services",
+                    "Quick response & same-day service available",
+                    "Customized solutions for homes, offices & factories",
                     "Warranty on all repairs & installations",
                     "24/7 customer support available",
                   ].map((item, i) => (
-                    <div key={item} className={`flex items-center gap-3 reveal reveal-delay-${i % 5 + 1}`}>
+                    <div key={item} className={`flex items-center gap-3 reveal reveal-delay-${(i % 5) + 1}`}>
                       <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
                         <CheckCircle className="w-3.5 h-3.5 text-primary" />
                       </div>
@@ -179,7 +179,7 @@ const Index = () => {
               </div>
               <div className="reveal reveal-delay-2">
                 <div className="rounded-xl overflow-hidden gradient-border">
-                  <img src={heroBg} alt="Professional setup" className="w-full aspect-video object-cover" loading="lazy" />
+                  <img src={heroBg} alt="Nilkanth Digital professional setup" className="w-full aspect-video object-cover" loading="lazy" />
                 </div>
               </div>
             </div>
@@ -189,14 +189,14 @@ const Index = () => {
         {/* Testimonials */}
         <section className="py-20 lg:py-28 relative overflow-hidden">
           <div className="glow-orb glow-orb-primary w-[300px] h-[300px] bottom-0 left-1/2 opacity-15" />
-          
+
           <div className="container mx-auto px-4 relative">
             <div className="text-center mb-14 reveal">
               <div className="red-line mx-auto mb-4" />
               <span className="text-primary font-semibold text-sm uppercase tracking-widest">Testimonials</span>
               <h2 className="text-3xl md:text-4xl font-heading font-bold mt-2">What Our Customers Say</h2>
             </div>
-            
+
             <div className="grid md:grid-cols-3 gap-6">
               {testimonials.map((t, i) => (
                 <div key={t.name} className={`p-7 rounded-xl border border-border bg-card hover-lift reveal reveal-delay-${i + 1}`}>
@@ -226,13 +226,13 @@ const Index = () => {
           <div className="absolute inset-0 hero-gradient" />
           <div className="absolute inset-0 grid-pattern opacity-20" />
           <div className="glow-orb glow-orb-primary w-[500px] h-[500px] -bottom-48 left-1/2 -translate-x-1/2" />
-          
+
           <div className="container mx-auto px-4 text-center relative z-10">
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
               Ready to Get Started?
             </h2>
             <p className="text-muted-foreground mb-8 max-w-lg mx-auto">
-              Contact us today for a free consultation and quote. We're here to help!
+              Contact Nilkanth Digital today for a free consultation. We serve homes, offices, schools, factories & businesses across Surat.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link

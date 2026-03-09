@@ -11,17 +11,23 @@ import networking from "@/assets/networking.jpg";
 import products from "@/assets/products.jpg";
 import heroBg from "@/assets/hero-bg.jpg";
 import team from "@/assets/team.jpg";
+import smartHome from "@/assets/smart-home.jpg";
+import fireSafety from "@/assets/fire-safety.jpg";
+import serverNas from "@/assets/server-nas.jpg";
 
 const galleryItems = [
-  { title: "CCTV Control Room Setup", desc: "Multi-monitor surveillance control room", img: heroBg },
-  { title: "Dome Camera Installation", desc: "Professional dome camera for office security", img: cctvDome },
-  { title: "Outdoor Bullet Camera", desc: "Weatherproof bullet camera installation", img: cctvBullet },
-  { title: "CCTV Repair Workshop", desc: "Our technician repairing a security camera", img: cctvRepair },
-  { title: "Laptop Repair Lab", desc: "State-of-the-art laptop diagnostics and repair", img: laptopRepair },
-  { title: "Desktop Hardware Repair", desc: "PC hardware maintenance and upgrades", img: desktopRepair },
-  { title: "Server Room Installation", desc: "Professional networking equipment setup", img: networking },
-  { title: "Security Products Display", desc: "Our showroom with latest CCTV equipment", img: products },
-  { title: "Our Expert Team", desc: "Certified technicians ready to serve you", img: team },
+  { title: "CCTV Control Room", desc: "Multi-monitor surveillance setup", img: heroBg },
+  { title: "Dome Camera Installation", desc: "Professional dome camera for office", img: cctvDome },
+  { title: "Bullet Camera Setup", desc: "Outdoor bullet camera installation", img: cctvBullet },
+  { title: "CCTV Repair Workshop", desc: "Expert camera diagnostics & repair", img: cctvRepair },
+  { title: "Laptop Repair Lab", desc: "Diagnostics and component repair", img: laptopRepair },
+  { title: "Desktop Service", desc: "PC hardware maintenance", img: desktopRepair },
+  { title: "Smart Home Setup", desc: "Automated lighting & controls", img: smartHome },
+  { title: "Fire Safety Installation", desc: "Fire alarm & extinguisher setup", img: fireSafety },
+  { title: "Server Room", desc: "Professional server rack setup", img: serverNas },
+  { title: "Network Infrastructure", desc: "Structured cabling & equipment", img: networking },
+  { title: "Product Showroom", desc: "Latest CCTV & IT equipment", img: products },
+  { title: "Our Expert Team", desc: "Certified technicians ready to serve", img: team },
 ];
 
 const Gallery = () => {
@@ -29,7 +35,7 @@ const Gallery = () => {
 
   return (
     <Layout>
-      <PageHero title="Our Gallery" subtitle="View our completed projects, installations, and workshop" />
+      <PageHero title="Our Gallery" subtitle="View our completed projects, installations, and workshop across Surat" />
       <div className="container mx-auto px-4">
         <Breadcrumb items={[{ label: "Gallery" }]} />
       </div>
@@ -42,10 +48,7 @@ const Gallery = () => {
           <div className="container mx-auto px-4">
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {galleryItems.map((item, i) => (
-                <div
-                  key={i}
-                  className={`group rounded-xl border border-border bg-card overflow-hidden hover-lift reveal reveal-delay-${(i % 5) + 1}`}
-                >
+                <div key={i} className={`group rounded-xl border border-border bg-card overflow-hidden hover-lift reveal reveal-delay-${(i % 5) + 1}`}>
                   <div className="img-overlay aspect-[4/3]">
                     <img src={item.img} alt={item.title} className="w-full h-full object-cover" loading="lazy" />
                     <div className="absolute bottom-0 left-0 right-0 p-5 z-10">

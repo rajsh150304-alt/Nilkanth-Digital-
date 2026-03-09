@@ -6,7 +6,11 @@ const services = [
   { to: "/cctv-repair", label: "CCTV Repair & AMC" },
   { to: "/laptop-repair", label: "Laptop Repair" },
   { to: "/desktop-repair", label: "Desktop Repair" },
-  { to: "/networking", label: "Networking & Security" },
+  { to: "/smart-home", label: "Smart Home Automation" },
+  { to: "/fire-safety", label: "Fire & Safety" },
+  { to: "/server-nas", label: "Server & NAS Setup" },
+  { to: "/firewall", label: "Firewall & Networking" },
+  { to: "/networking", label: "Wi-Fi & Network Setup" },
   { to: "/products", label: "Products" },
 ];
 
@@ -35,14 +39,14 @@ const Footer = () => {
               </span>
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-              Your trusted partner for CCTV installation, computer repair, and IT solutions since 2014.
+              Your trusted Surat-based partner for IT & security solutions since 2018. CCTV, smart home, fire safety, networking, and computer services.
             </p>
             <div className="flex gap-3">
               {[
                 { Icon: Facebook, href: "#" },
-                { Icon: Twitter, href: "#" },
                 { Icon: Instagram, href: "#" },
                 { Icon: Youtube, href: "#" },
+                { Icon: Twitter, href: "#" },
               ].map(({ Icon, href }, i) => (
                 <a key={i} href={href} className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-300">
                   <Icon className="w-4 h-4" />
@@ -53,7 +57,7 @@ const Footer = () => {
 
           <div>
             <h3 className="font-heading font-semibold mb-5">Our Services</h3>
-            <ul className="space-y-3">
+            <ul className="space-y-2.5">
               {services.map((s) => (
                 <li key={s.to}>
                   <Link to={s.to} className="text-sm text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-1 group">
@@ -98,7 +102,7 @@ const Footer = () => {
                 <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                   <MapPin className="w-4 h-4 text-primary" />
                 </div>
-                123 Tech Street, City Center, India
+                Surat, Gujarat, India
               </div>
             </div>
           </div>
@@ -106,7 +110,7 @@ const Footer = () => {
 
         <div className="border-t border-border/50 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
           <p>© {new Date().getFullYear()} Nilkanth Digital. All rights reserved.</p>
-          <p>Designed with ❤️ for quality service</p>
+          <p>IT & Security Solutions Since 2018</p>
         </div>
       </div>
     </footer>

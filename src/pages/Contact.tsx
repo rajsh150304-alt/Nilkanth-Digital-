@@ -36,44 +36,27 @@ const Contact = () => {
                 <h2 className="text-2xl md:text-3xl font-heading font-bold mb-8">Send Us a Message</h2>
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="grid sm:grid-cols-2 gap-5">
-                    <input
-                      type="text" placeholder="Your Name *" required
-                      value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })}
-                      className="w-full px-5 py-4 rounded-lg border border-border bg-card text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all"
-                    />
-                    <input
-                      type="tel" placeholder="Phone Number *" required
-                      value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                      className="w-full px-5 py-4 rounded-lg border border-border bg-card text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all"
-                    />
+                    <input type="text" placeholder="Your Name *" required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className="w-full px-5 py-4 rounded-lg border border-border bg-card text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all" />
+                    <input type="tel" placeholder="Phone Number *" required value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} className="w-full px-5 py-4 rounded-lg border border-border bg-card text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all" />
                   </div>
-                  <input
-                    type="email" placeholder="Email Address"
-                    value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })}
-                    className="w-full px-5 py-4 rounded-lg border border-border bg-card text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all"
-                  />
-                  <select
-                    value={form.service} onChange={(e) => setForm({ ...form, service: e.target.value })}
-                    className="w-full px-5 py-4 rounded-lg border border-border bg-card text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all"
-                  >
+                  <input type="email" placeholder="Email Address" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className="w-full px-5 py-4 rounded-lg border border-border bg-card text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all" />
+                  <select value={form.service} onChange={(e) => setForm({ ...form, service: e.target.value })} className="w-full px-5 py-4 rounded-lg border border-border bg-card text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all">
                     <option value="">Select Service</option>
                     <option>CCTV Installation</option>
-                    <option>CCTV Repair</option>
+                    <option>CCTV Repair & AMC</option>
                     <option>Laptop Repair</option>
                     <option>Desktop Repair</option>
-                    <option>Networking</option>
+                    <option>Smart Home Automation</option>
+                    <option>Fire & Safety Solutions</option>
+                    <option>Server & NAS Setup</option>
+                    <option>Firewall & Networking</option>
+                    <option>Wi-Fi & Network Setup</option>
+                    <option>Products & Equipment</option>
                     <option>AMC Service</option>
                     <option>Other</option>
                   </select>
-                  <textarea
-                    placeholder="Your Message *" required rows={5}
-                    value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })}
-                    className="w-full px-5 py-4 rounded-lg border border-border bg-card text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all resize-none"
-                  />
-                  <button
-                    type="submit"
-                    className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-lg font-semibold btn-shine hover:shadow-[0_0_40px_hsla(0,80%,55%,0.4)] transition-all duration-300 w-full justify-center sm:w-auto"
-                  >
+                  <textarea placeholder="Your Message *" required rows={5} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} className="w-full px-5 py-4 rounded-lg border border-border bg-card text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all resize-none" />
+                  <button type="submit" className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-lg font-semibold btn-shine hover:shadow-[0_0_40px_hsla(0,80%,55%,0.4)] transition-all duration-300 w-full justify-center sm:w-auto">
                     <Send className="w-4 h-4" /> Send Message
                   </button>
                 </form>
@@ -86,7 +69,7 @@ const Contact = () => {
                   {[
                     { icon: Phone, label: "Phone", value: "+91 98765 43210", href: "tel:+919876543210" },
                     { icon: Mail, label: "Email", value: "info@nilkanthdigital.com", href: "mailto:info@nilkanthdigital.com" },
-                    { icon: MessageCircle, label: "WhatsApp", value: "Chat with us", href: "https://wa.me/919876543210" },
+                    { icon: MessageCircle, label: "WhatsApp", value: "Chat with us", href: "https://wa.me/919876543210?text=Hi%20Nilkanth%20Digital%2C%20I%20need%20your%20service" },
                   ].map((item) => (
                     <a key={item.label} href={item.href} target={item.label === "WhatsApp" ? "_blank" : undefined} rel="noopener noreferrer" className="flex items-center gap-4 group p-4 rounded-lg border border-border bg-card hover-lift">
                       <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary transition-colors duration-300">
@@ -104,7 +87,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <h3 className="font-semibold text-sm">Address</h3>
-                      <p className="text-muted-foreground text-sm">123 Tech Street, City Center, India</p>
+                      <p className="text-muted-foreground text-sm">Surat, Gujarat, India</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-4 p-4 rounded-lg border border-border bg-card">

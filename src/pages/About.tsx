@@ -25,21 +25,24 @@ const About = () => {
                 <div className="red-line mb-4" />
                 <span className="text-primary font-semibold text-sm uppercase tracking-widest">Who We Are</span>
                 <h2 className="text-3xl md:text-4xl font-heading font-bold mt-3 mb-6">
-                  Your Trusted Technology Partner Since 2014
+                  Your Trusted IT & Security Partner Since 2018
                 </h2>
                 <p className="text-muted-foreground leading-relaxed mb-4">
-                  Nilkanth Digital is a leading technology service provider specializing in CCTV installation, computer repair, networking solutions, and IT support services. With over 10 years of experience, we have served thousands of satisfied customers.
+                  Nilkanth Digital is a trusted Surat-based partner for comprehensive technology and security services. Since 2018, we have been delivering reliable, customized solutions for homes, offices, schools, factories, and businesses.
+                </p>
+                <p className="text-muted-foreground leading-relaxed mb-4">
+                  We specialize in CCTV installation & maintenance, PC/laptop sales & repairs, smart home automation, fire & safety solutions, server & NAS setup, firewall & networking, and annual maintenance contracts (AMC).
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
-                  Our team of certified technicians is dedicated to providing fast, reliable, and affordable technology solutions for homes and businesses.
+                  Our certified technicians deliver quality service with a strong focus on trust, professionalism, and fast support — ensuring your IT and security needs are met with care.
                 </p>
               </div>
               <div className="grid grid-cols-2 gap-5 reveal reveal-delay-1">
                 {[
                   { icon: Award, title: "Certified Experts", desc: "Trained & certified technicians" },
-                  { icon: Users, title: "1000+ Clients", desc: "Trusted by businesses & homes" },
+                  { icon: Users, title: "1000+ Clients", desc: "Trusted across Surat" },
                   { icon: Target, title: "Quality Service", desc: "Premium products & workmanship" },
-                  { icon: Clock, title: "24/7 Support", desc: "Always available when you need us" },
+                  { icon: Clock, title: "24/7 Support", desc: "Always available for you" },
                 ].map((item, i) => (
                   <div key={item.title} className={`p-6 rounded-xl border border-border bg-card text-center hover-lift card-shine reveal reveal-delay-${i + 1}`}>
                     <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
@@ -66,7 +69,7 @@ const About = () => {
                 </div>
                 <h3 className="text-2xl font-heading font-bold mb-4">Our Mission</h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  To provide world-class technology solutions that protect, connect, and empower our customers. We strive to deliver exceptional service quality at competitive prices.
+                  To provide world-class IT and security solutions that protect, connect, and empower our customers. We strive to deliver exceptional service at competitive prices with complete professionalism.
                 </p>
               </div>
               <div className="p-10 rounded-xl gradient-border bg-card hover-lift reveal reveal-delay-1">
@@ -75,7 +78,7 @@ const About = () => {
                 </div>
                 <h3 className="text-2xl font-heading font-bold mb-4">Our Vision</h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  To become the most trusted name in technology services, known for innovation, reliability, and customer satisfaction across the region.
+                  To become Surat's most trusted name in IT & security services, known for innovation, reliability, and complete customer satisfaction across every project we deliver.
                 </p>
               </div>
             </div>
