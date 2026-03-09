@@ -41,7 +41,7 @@ const Index = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section className="relative min-h-screen flex items-center overflow-hidden">
+      <section className="relative overflow-hidden">
         <div className="absolute inset-0">
           <img src={heroBg} alt="Nilkanth Digital IT Solutions" className="w-full h-full object-cover" loading="eager" />
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/50" />
@@ -51,50 +51,48 @@ const Index = () => {
         <div className="glow-orb glow-orb-primary w-[500px] h-[500px] -top-48 -right-48" />
         <div className="glow-orb glow-orb-blue w-[400px] h-[400px] bottom-0 left-1/4" />
 
-        <div className="container mx-auto px-4 relative z-10 py-32">
+        <div className="container mx-auto px-4 relative z-10 pt-24 md:pt-32 pb-8">
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 glass-card rounded-full px-4 py-2 text-sm mb-6 animate-in">
               <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
               <span className="text-foreground/80">Trusted IT & Security Partner Since 2018 • Surat</span>
             </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-foreground leading-[1.1] mb-6 animate-in animate-in-delay-1">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-heading font-bold text-foreground leading-[1.1] mb-5 animate-in animate-in-delay-1">
               Your Complete{" "}
               <span className="text-gradient">IT</span> &{" "}
               <span className="text-gradient">Security</span> Solutions
             </h1>
 
-            <p className="text-lg text-muted-foreground mb-8 leading-relaxed max-w-xl animate-in animate-in-delay-2">
+            <p className="text-base md:text-lg text-muted-foreground mb-6 md:mb-8 leading-relaxed max-w-xl animate-in animate-in-delay-2">
               Professional CCTV installation, smart home automation, fire safety, server setup, networking, and computer services. Protecting homes, offices, schools, factories & businesses across Surat.
             </p>
 
-            <div className="flex flex-wrap gap-4 animate-in animate-in-delay-3">
+            <div className="flex flex-wrap gap-3 md:gap-4 animate-in animate-in-delay-3">
               <Link
                 to="/contact"
-                className="group inline-flex items-center gap-2 bg-primary text-primary-foreground px-7 py-3.5 rounded-lg font-semibold btn-shine hover:shadow-[0_0_40px_hsla(0,80%,55%,0.4)] transition-all duration-300"
+                className="group inline-flex items-center gap-2 bg-primary text-primary-foreground px-5 md:px-7 py-3 md:py-3.5 rounded-lg font-semibold text-sm md:text-base btn-shine hover:shadow-[0_0_40px_hsla(0,80%,55%,0.4)] transition-all duration-300"
               >
                 Get Free Quote
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </Link>
               <a
                 href="tel:+919876543210"
-                className="group inline-flex items-center gap-2 glass-card px-7 py-3.5 rounded-lg font-semibold hover:bg-primary/10 transition-all duration-300"
+                className="group inline-flex items-center gap-2 glass-card px-5 md:px-7 py-3 md:py-3.5 rounded-lg font-semibold text-sm md:text-base hover:bg-primary/10 transition-all duration-300"
               >
                 <Phone className="w-4 h-4 text-primary" />
                 Call Now
               </a>
             </div>
           </div>
-        </div>
 
-        <div className="absolute bottom-0 left-0 right-0">
-          <div className="container mx-auto px-4 pb-8">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 animate-in animate-in-delay-4">
+          <div className="mt-8 md:mt-12">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 animate-in animate-in-delay-4">
               {stats.map((stat) => (
-                <div key={stat.label} className="group text-center p-5 rounded-xl glass-card gradient-border hover:scale-105 transition-transform duration-300">
-                  <stat.icon className="w-5 h-5 text-primary mx-auto mb-2 group-hover:scale-110 transition-transform" />
-                  <div className="text-2xl md:text-3xl font-heading font-bold text-foreground">{stat.num}</div>
-                  <div className="text-xs text-muted-foreground mt-1">{stat.label}</div>
+                <div key={stat.label} className="group text-center p-3 md:p-5 rounded-xl glass-card gradient-border hover:scale-105 transition-transform duration-300">
+                  <stat.icon className="w-4 md:w-5 h-4 md:h-5 text-primary mx-auto mb-1.5 group-hover:scale-110 transition-transform" />
+                  <div className="text-xl md:text-3xl font-heading font-bold text-foreground">{stat.num}</div>
+                  <div className="text-[10px] md:text-xs text-muted-foreground mt-0.5">{stat.label}</div>
                 </div>
               ))}
             </div>
