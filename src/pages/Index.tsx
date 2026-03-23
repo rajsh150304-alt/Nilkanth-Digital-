@@ -77,7 +77,7 @@ const Index = () => {
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </Link>
               <a
-                href="tel:+919876543210"
+                href="tel:+919998994473"
                 className="group inline-flex items-center gap-2 glass-card px-5 md:px-7 py-3 md:py-3.5 rounded-lg font-semibold text-sm md:text-base hover:bg-primary/10 transition-all duration-300"
               >
                 <Phone className="w-4 h-4 text-primary" />
