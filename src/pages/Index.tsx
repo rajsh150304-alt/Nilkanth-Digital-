@@ -240,11 +240,11 @@ const Index = () => {
                 Contact Us
               </Link>
               <a
-                href="tel:+919876543210"
+                href="tel:+919998994473"
                 className="glass-card px-8 py-4 rounded-lg font-semibold hover:bg-primary/10 transition-all duration-300 inline-flex items-center gap-2"
               >
                 <Phone className="w-4 h-4 text-primary" />
-                +91 98765 43210
+                +91 99989 94473
               </a>
             </div>
           </div>
