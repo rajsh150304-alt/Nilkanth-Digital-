@@ -86,11 +86,11 @@ const Footer = () => {
           <div>
             <h3 className="font-heading font-semibold mb-5">Contact Info</h3>
             <div className="space-y-4">
-              <a href="tel:+919876543210" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors">
+              <a href="tel:+919998994473" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors">
                 <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
                   <Phone className="w-4 h-4 text-primary" />
                 </div>
-                +91 98765 43210
+                +91 99989 94473
               </a>
               <a href="mailto:info@nilkanthdigital.com" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors">
                 <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">

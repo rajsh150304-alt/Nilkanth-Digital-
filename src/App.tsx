@@ -17,6 +17,11 @@ import FireSafety from "./pages/FireSafety";
 import ServerNAS from "./pages/ServerNAS";
 import Firewall from "./pages/Firewall";
 import Products from "./pages/Products";
+import ProductLaptops from "./pages/ProductLaptops";
+import ProductComputers from "./pages/ProductComputers";
+import ProductIntercom from "./pages/ProductIntercom";
+import ProductPrinters from "./pages/ProductPrinters";
+import ProductAccessories from "./pages/ProductAccessories";
 import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
@@ -51,6 +56,11 @@ const App = () => (
           <Route path="/server-nas" element={<ServerNAS />} />
           <Route path="/firewall" element={<Firewall />} />
           <Route path="/products" element={<Products />} />
+          <Route path="/products/laptops" element={<ProductLaptops />} />
+          <Route path="/products/computers" element={<ProductComputers />} />
+          <Route path="/products/intercom" element={<ProductIntercom />} />
+          <Route path="/products/printers" element={<ProductPrinters />} />
+          <Route path="/products/accessories" element={<ProductAccessories />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />

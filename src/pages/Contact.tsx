@@ -67,9 +67,9 @@ const Contact = () => {
                 <h2 className="text-2xl md:text-3xl font-heading font-bold mb-8">Get In Touch</h2>
                 <div className="space-y-5 mb-10">
                   {[
-                    { icon: Phone, label: "Phone", value: "+91 98765 43210", href: "tel:+919876543210" },
+                    { icon: Phone, label: "Phone", value: "+91 99989 94473", href: "tel:+919998994473" },
                     { icon: Mail, label: "Email", value: "info@nilkanthdigital.com", href: "mailto:info@nilkanthdigital.com" },
-                    { icon: MessageCircle, label: "WhatsApp", value: "Chat with us", href: "https://wa.me/919876543210?text=Hi%20Nilkanth%20Digital%2C%20I%20need%20your%20service" },
+                    { icon: MessageCircle, label: "WhatsApp", value: "Chat with us", href: "https://wa.me/919998994473?text=Hi%20Nilkanth%20Digital%2C%20I%20need%20your%20service" },
                   ].map((item) => (
                     <a key={item.label} href={item.href} target={item.label === "WhatsApp" ? "_blank" : undefined} rel="noopener noreferrer" className="flex items-center gap-4 group p-4 rounded-lg border border-border bg-card hover-lift">
                       <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary transition-colors duration-300">

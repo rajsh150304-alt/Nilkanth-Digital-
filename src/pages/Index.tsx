@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import { Shield, Camera, Monitor, Laptop, Wifi, Wrench, Star, Phone, CheckCircle, ArrowRight, Zap, Home, Flame, Server, Lock } from "lucide-react";
+import { Shield, Camera, Monitor, Laptop, Wifi, Wrench, Star, Phone, CheckCircle, ArrowRight, Zap, Home, Flame, Server, Lock, Play } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 import cctvDome from "@/assets/cctv-dome.jpg";
 import laptopRepairImg from "@/assets/laptop-repair.jpg";
@@ -41,58 +41,88 @@ const Index = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section className="relative overflow-hidden">
+      <section className="relative min-h-[100vh] md:min-h-[90vh] flex items-center overflow-hidden">
+        {/* Background */}
         <div className="absolute inset-0">
-          <img src={heroBg} alt="Nilkanth Digital IT Solutions" className="w-full h-full object-cover" loading="eager" />
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/50" />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/50" />
+          <img src={heroBg} alt="Nilkanth Digital IT Solutions" className="w-full h-full object-cover scale-105" loading="eager" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-background/60" />
         </div>
-        <div className="absolute inset-0 grid-pattern opacity-30" />
-        <div className="glow-orb glow-orb-primary w-[500px] h-[500px] -top-48 -right-48" />
-        <div className="glow-orb glow-orb-blue w-[400px] h-[400px] bottom-0 left-1/4" />
 
-        <div className="container mx-auto px-4 relative z-10 pt-24 md:pt-32 pb-8">
-          <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 glass-card rounded-full px-4 py-2 text-sm mb-6 animate-in">
-              <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-              <span className="text-foreground/80">Trusted IT & Security Partner Since 2018 • Surat</span>
+        {/* Animated background elements */}
+        <div className="absolute inset-0 grid-pattern opacity-20" />
+        <div className="glow-orb glow-orb-primary w-[600px] h-[600px] -top-32 -right-32 opacity-30" />
+        <div className="glow-orb glow-orb-blue w-[400px] h-[400px] bottom-0 left-0 opacity-20" />
+
+        {/* Floating decorative elements */}
+        <div className="absolute top-1/4 right-[15%] w-20 h-20 border border-primary/20 rounded-2xl rotate-12 animate-float hidden lg:block" />
+        <div className="absolute bottom-1/3 right-[25%] w-14 h-14 border border-primary/10 rounded-xl -rotate-12 animate-float hidden lg:block" style={{ animationDelay: "1s" }} />
+
+        <div className="container mx-auto px-4 relative z-10 pt-24 pb-12 md:pt-28 md:pb-16">
+          <div className="max-w-3xl">
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2.5 bg-primary/10 backdrop-blur-md border border-primary/20 rounded-full px-5 py-2.5 text-sm mb-8 animate-in">
+              <div className="w-2 h-2 rounded-full bg-primary pulse-glow" />
+              <span className="text-foreground/90 font-medium">Trusted IT & Security Partner Since 2018 • Surat</span>
             </div>
 
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-heading font-bold text-foreground leading-[1.1] mb-5 animate-in animate-in-delay-1">
-              Your Complete{" "}
-              <span className="text-gradient">IT</span> &{" "}
-              <span className="text-gradient">Security</span> Solutions
+            {/* Main heading */}
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-bold text-foreground leading-[1.05] mb-6 animate-in animate-in-delay-1">
+              Your Complete
+              <br />
+              <span className="relative inline-block">
+                <span className="text-gradient">IT & Security</span>
+                <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 300 12" fill="none">
+                  <path d="M2 8C50 2 150 2 298 8" stroke="hsl(var(--primary))" strokeWidth="3" strokeLinecap="round" opacity="0.4" />
+                </svg>
+              </span>
+              <br />
+              Solutions
             </h1>
 
-            <p className="text-base md:text-lg text-muted-foreground mb-6 md:mb-8 leading-relaxed max-w-xl animate-in animate-in-delay-2">
-              Professional CCTV installation, smart home automation, fire safety, server setup, networking, and computer services. Protecting homes, offices, schools, factories & businesses across Surat.
+            {/* Subtitle */}
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-8 md:mb-10 leading-relaxed max-w-2xl animate-in animate-in-delay-2">
+              Professional CCTV, smart home, fire safety, server setup, networking & computer services — protecting homes, offices & businesses across Surat.
             </p>
 
-            <div className="flex flex-wrap gap-3 md:gap-4 animate-in animate-in-delay-3">
+            {/* CTA Buttons */}
+            <div className="flex flex-wrap gap-4 mb-10 animate-in animate-in-delay-3">
               <Link
                 to="/contact"
-                className="group inline-flex items-center gap-2 bg-primary text-primary-foreground px-5 md:px-7 py-3 md:py-3.5 rounded-lg font-semibold text-sm md:text-base btn-shine hover:shadow-[0_0_40px_hsla(0,80%,55%,0.4)] transition-all duration-300"
+                className="group inline-flex items-center gap-2.5 bg-primary text-primary-foreground px-7 py-4 rounded-xl font-semibold text-base btn-shine hover:shadow-[0_0_50px_hsla(0,80%,55%,0.5)] hover:scale-[1.02] transition-all duration-300"
               >
                 Get Free Quote
-                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
               </Link>
               <a
-                href="tel:+919876543210"
-                className="group inline-flex items-center gap-2 glass-card px-5 md:px-7 py-3 md:py-3.5 rounded-lg font-semibold text-sm md:text-base hover:bg-primary/10 transition-all duration-300"
+                href="tel:+919998994473"
+                className="group inline-flex items-center gap-2.5 bg-foreground/5 backdrop-blur-md border border-border/50 px-7 py-4 rounded-xl font-semibold text-base hover:bg-primary/10 hover:border-primary/30 transition-all duration-300"
               >
-                <Phone className="w-4 h-4 text-primary" />
-                Call Now
+                <div className="w-8 h-8 rounded-full bg-primary/15 flex items-center justify-center">
+                  <Phone className="w-4 h-4 text-primary" />
+                </div>
+                +91 99989 94473
               </a>
             </div>
-          </div>
 
-          <div className="mt-8 md:mt-12">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 animate-in animate-in-delay-4">
+            {/* Quick trust badges */}
+            <div className="flex flex-wrap gap-6 text-sm text-muted-foreground animate-in animate-in-delay-4">
+              {["✓ Free Consultation", "✓ Same Day Service", "✓ Warranty Guaranteed"].map((item) => (
+                <span key={item} className="flex items-center gap-1.5">{item}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Stats bar at bottom */}
+        <div className="absolute bottom-0 left-0 right-0 z-10">
+          <div className="container mx-auto px-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 pb-6 md:pb-8 animate-in animate-in-delay-4">
               {stats.map((stat) => (
-                <div key={stat.label} className="group text-center p-3 md:p-5 rounded-xl glass-card gradient-border hover:scale-105 transition-transform duration-300">
-                  <stat.icon className="w-4 md:w-5 h-4 md:h-5 text-primary mx-auto mb-1.5 group-hover:scale-110 transition-transform" />
-                  <div className="text-xl md:text-3xl font-heading font-bold text-foreground">{stat.num}</div>
-                  <div className="text-[10px] md:text-xs text-muted-foreground mt-0.5">{stat.label}</div>
+                <div key={stat.label} className="group text-center p-4 md:p-6 rounded-xl bg-card/80 backdrop-blur-lg border border-border/50 hover:border-primary/30 hover:bg-card transition-all duration-300">
+                  <stat.icon className="w-5 h-5 text-primary mx-auto mb-2 group-hover:scale-110 transition-transform" />
+                  <div className="text-2xl md:text-3xl font-heading font-bold text-foreground">{stat.num}</div>
+                  <div className="text-[11px] md:text-xs text-muted-foreground mt-1">{stat.label}</div>
                 </div>
               ))}
             </div>
@@ -240,11 +270,11 @@ const Index = () => {
                 Contact Us
               </Link>
               <a
-                href="tel:+919876543210"
+                href="tel:+919998994473"
                 className="glass-card px-8 py-4 rounded-lg font-semibold hover:bg-primary/10 transition-all duration-300 inline-flex items-center gap-2"
               >
                 <Phone className="w-4 h-4 text-primary" />
-                +91 98765 43210
+                +91 99989 94473
               </a>
             </div>
           </div>
