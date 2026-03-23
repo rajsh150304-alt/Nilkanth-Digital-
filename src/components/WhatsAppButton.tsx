@@ -5,7 +5,7 @@ const WhatsAppButton = () => {
     <div className="fixed bottom-5 right-5 z-50 flex flex-col gap-3">
       {/* Call Button */}
       <a
-        href="tel:+919876543210"
+        href="tel:+919998994473"
         className="w-12 h-12 rounded-full bg-primary flex items-center justify-center shadow-lg shadow-primary/30 hover:scale-110 hover:shadow-primary/50 transition-all duration-300"
         aria-label="Call us"
       >
