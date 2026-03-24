@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import { Shield, Camera, Monitor, Laptop, Wifi, Wrench, Star, Phone, CheckCircle, ArrowRight, Zap, Home, Flame, Server, Lock, Play } from "lucide-react";
+import { Camera, Laptop, Wifi, Wrench, Star, Phone, CheckCircle, ArrowRight, Zap, Home, Flame, Server, Lock } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 import cctvDome from "@/assets/cctv-dome.jpg";
 import laptopRepairImg from "@/assets/laptop-repair.jpg";
@@ -10,6 +10,7 @@ import smartHomeImg from "@/assets/smart-home.jpg";
 import fireSafetyImg from "@/assets/fire-safety.jpg";
 import serverNasImg from "@/assets/server-nas.jpg";
 import firewallImg from "@/assets/firewall.jpg";
+import logo from "@/assets/logo.png";
 
 const services = [
   { icon: Camera, title: "CCTV Installation", desc: "Professional bullet, dome, wireless & outdoor camera installation", to: "/cctv-installation", img: cctvDome },
@@ -41,7 +42,7 @@ const Index = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section className="relative min-h-[100vh] md:min-h-[90vh] flex items-center overflow-hidden">
+      <section className="relative min-h-screen flex items-center overflow-hidden">
         {/* Background */}
         <div className="absolute inset-0">
           <img src={heroBg} alt="Nilkanth Digital IT Solutions" className="w-full h-full object-cover scale-105" loading="eager" />
@@ -58,11 +59,11 @@ const Index = () => {
         <div className="absolute top-1/4 right-[15%] w-20 h-20 border border-primary/20 rounded-2xl rotate-12 animate-float hidden lg:block" />
         <div className="absolute bottom-1/3 right-[25%] w-14 h-14 border border-primary/10 rounded-xl -rotate-12 animate-float hidden lg:block" style={{ animationDelay: "1s" }} />
 
-        <div className="container mx-auto px-4 relative z-10 pt-24 pb-12 md:pt-28 md:pb-16">
+        <div className="container mx-auto px-4 relative z-10 pt-24 md:pt-28">
           <div className="max-w-3xl">
             {/* Badge */}
             <div className="inline-flex items-center gap-2.5 bg-primary/10 backdrop-blur-md border border-primary/20 rounded-full px-5 py-2.5 text-sm mb-8 animate-in">
-              <div className="w-2 h-2 rounded-full bg-primary pulse-glow" />
+              <img src={logo} alt="" className="w-5 h-5 rounded-full" width={20} height={20} />
               <span className="text-foreground/90 font-medium">Trusted IT & Security Partner Since 2018 • Surat</span>
             </div>
 
@@ -86,10 +87,10 @@ const Index = () => {
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-wrap gap-4 mb-10 animate-in animate-in-delay-3">
+            <div className="flex flex-wrap gap-4 mb-8 animate-in animate-in-delay-3">
               <Link
                 to="/contact"
-                className="group inline-flex items-center gap-2.5 bg-primary text-primary-foreground px-7 py-4 rounded-xl font-semibold text-base btn-shine hover:shadow-[0_0_50px_hsla(0,80%,55%,0.5)] hover:scale-[1.02] transition-all duration-300"
+                className="group inline-flex items-center gap-2.5 bg-primary text-primary-foreground px-7 py-4 rounded-xl font-semibold text-base btn-shine hover:shadow-[0_0_50px_hsl(var(--primary)/0.5)] hover:scale-[1.02] transition-all duration-300"
               >
                 Get Free Quote
                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
@@ -106,33 +107,33 @@ const Index = () => {
             </div>
 
             {/* Quick trust badges */}
-            <div className="flex flex-wrap gap-6 text-sm text-muted-foreground animate-in animate-in-delay-4">
+            <div className="flex flex-wrap gap-4 md:gap-6 text-sm text-muted-foreground animate-in animate-in-delay-4">
               {["✓ Free Consultation", "✓ Same Day Service", "✓ Warranty Guaranteed"].map((item) => (
                 <span key={item} className="flex items-center gap-1.5">{item}</span>
               ))}
             </div>
           </div>
         </div>
+      </section>
 
-        {/* Stats bar at bottom */}
-        <div className="absolute bottom-0 left-0 right-0 z-10">
-          <div className="container mx-auto px-4">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 pb-6 md:pb-8 animate-in animate-in-delay-4">
-              {stats.map((stat) => (
-                <div key={stat.label} className="group text-center p-4 md:p-6 rounded-xl bg-card/80 backdrop-blur-lg border border-border/50 hover:border-primary/30 hover:bg-card transition-all duration-300">
-                  <stat.icon className="w-5 h-5 text-primary mx-auto mb-2 group-hover:scale-110 transition-transform" />
-                  <div className="text-2xl md:text-3xl font-heading font-bold text-foreground">{stat.num}</div>
-                  <div className="text-[11px] md:text-xs text-muted-foreground mt-1">{stat.label}</div>
-                </div>
-              ))}
-            </div>
+      {/* Stats bar — NOT absolute, flows naturally */}
+      <section className="relative z-10 -mt-16 md:-mt-20 pb-8">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 animate-in animate-in-delay-4">
+            {stats.map((stat) => (
+              <div key={stat.label} className="group text-center p-4 md:p-6 rounded-xl bg-card/90 backdrop-blur-lg border border-border/50 hover:border-primary/30 hover:bg-card transition-all duration-300 hover-lift">
+                <stat.icon className="w-5 h-5 text-primary mx-auto mb-2 group-hover:scale-110 transition-transform" />
+                <div className="text-2xl md:text-3xl font-heading font-bold text-foreground">{stat.num}</div>
+                <div className="text-[11px] md:text-xs text-muted-foreground mt-1">{stat.label}</div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       <div ref={scrollRef}>
         {/* Services */}
-        <section className="py-20 lg:py-28 relative overflow-hidden">
+        <section className="py-16 lg:py-24 relative overflow-hidden">
           <div className="glow-orb glow-orb-primary w-[300px] h-[300px] top-20 -left-32 opacity-20" />
 
           <div className="container mx-auto px-4 relative">
@@ -143,7 +144,7 @@ const Index = () => {
               <p className="text-muted-foreground max-w-lg mx-auto">Comprehensive IT & security solutions for homes, offices, and businesses</p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {services.map((s, i) => (
                 <Link
                   key={s.title}
@@ -175,12 +176,12 @@ const Index = () => {
         </section>
 
         {/* Why Choose Us */}
-        <section className="py-20 lg:py-28 section-alt relative overflow-hidden">
+        <section className="py-16 lg:py-24 section-alt relative overflow-hidden">
           <div className="absolute inset-0 grid-pattern opacity-20" />
           <div className="glow-orb glow-orb-blue w-[400px] h-[400px] top-0 right-0 opacity-20" />
 
           <div className="container mx-auto px-4 relative">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div className="reveal">
                 <div className="red-line mb-4" />
                 <span className="text-primary font-semibold text-sm uppercase tracking-widest">Why Nilkanth Digital</span>
@@ -215,7 +216,7 @@ const Index = () => {
         </section>
 
         {/* Testimonials */}
-        <section className="py-20 lg:py-28 relative overflow-hidden">
+        <section className="py-16 lg:py-24 relative overflow-hidden">
           <div className="glow-orb glow-orb-primary w-[300px] h-[300px] bottom-0 left-1/2 opacity-15" />
 
           <div className="container mx-auto px-4 relative">
@@ -250,7 +251,7 @@ const Index = () => {
         </section>
 
         {/* CTA */}
-        <section className="py-20 relative overflow-hidden reveal">
+        <section className="py-16 lg:py-20 relative overflow-hidden reveal">
           <div className="absolute inset-0 hero-gradient" />
           <div className="absolute inset-0 grid-pattern opacity-20" />
           <div className="glow-orb glow-orb-primary w-[500px] h-[500px] -bottom-48 left-1/2 -translate-x-1/2" />
@@ -265,7 +266,7 @@ const Index = () => {
             <div className="flex flex-wrap justify-center gap-4">
               <Link
                 to="/contact"
-                className="bg-primary text-primary-foreground px-8 py-4 rounded-lg font-semibold btn-shine hover:shadow-[0_0_40px_hsla(0,80%,55%,0.4)] transition-all duration-300"
+                className="bg-primary text-primary-foreground px-8 py-4 rounded-lg font-semibold btn-shine hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] transition-all duration-300"
               >
                 Contact Us
               </Link>
