@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, Youtube, ArrowRight } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const services = [
   { to: "/cctv-installation", label: "CCTV Installation" },
@@ -31,9 +32,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div>
             <Link to="/" className="flex items-center gap-2.5 mb-5">
-              <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center font-heading font-bold text-primary-foreground text-xl">
-                N
-              </div>
+              <img src={logo} alt="Nilkanth Digital" className="w-10 h-10 rounded-lg object-contain" width={40} height={40} />
               <span className="font-heading font-bold text-lg">
                 Nilkanth <span className="text-primary">Digital</span>
               </span>

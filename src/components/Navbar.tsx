@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Phone, ChevronDown } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const mainLinks = [
   { to: "/", label: "Home" },
@@ -72,9 +73,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center gap-2 group">
-            <div className="w-9 h-9 rounded-lg bg-primary flex items-center justify-center font-heading font-bold text-primary-foreground text-lg">
-              N
-            </div>
+            <img src={logo} alt="Nilkanth Digital" className="w-9 h-9 rounded-lg object-contain" width={36} height={36} />
             <div className="font-heading font-bold text-base">
               <span className="text-foreground">Nilkanth</span>{" "}
               <span className="text-primary">Digital</span>
