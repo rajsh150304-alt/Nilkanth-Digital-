@@ -44,14 +44,19 @@ const Contact = () => {
                     <option value="">Select Service</option>
                     <option>CCTV Installation</option>
                     <option>CCTV Repair & AMC</option>
+                    <option>Computer/Laptop Sales</option>
                     <option>Laptop Repair</option>
                     <option>Desktop Repair</option>
+                    <option>Printer Sales & Service</option>
+                    <option>Biometric Systems</option>
+                    <option>Intercom Systems</option>
+                    <option>LED TV</option>
                     <option>Smart Home Automation</option>
                     <option>Fire & Safety Solutions</option>
                     <option>Server & NAS Setup</option>
                     <option>Firewall & Networking</option>
                     <option>Wi-Fi & Network Setup</option>
-                    <option>Products & Equipment</option>
+                    <option>Software Solutions</option>
                     <option>AMC Service</option>
                     <option>Other</option>
                   </select>
@@ -68,7 +73,7 @@ const Contact = () => {
                 <div className="space-y-5 mb-10">
                   {[
                     { icon: Phone, label: "Phone", value: "+91 99989 94473", href: "tel:+919998994473" },
-                    { icon: Mail, label: "Email", value: "info@nilkanthdigital.com", href: "mailto:info@nilkanthdigital.com" },
+                    { icon: Mail, label: "Email", value: "nilkanth.digital@hotmail.com", href: "mailto:nilkanth.digital@hotmail.com" },
                     { icon: MessageCircle, label: "WhatsApp", value: "Chat with us", href: "https://wa.me/919998994473?text=Hi%20Nilkanth%20Digital%2C%20I%20need%20your%20service" },
                   ].map((item) => (
                     <a key={item.label} href={item.href} target={item.label === "WhatsApp" ? "_blank" : undefined} rel="noopener noreferrer" className="flex items-center gap-4 group p-4 rounded-lg border border-border bg-card hover-lift">
@@ -87,7 +92,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <h3 className="font-semibold text-sm">Address</h3>
-                      <p className="text-muted-foreground text-sm">Surat, Gujarat, India</p>
+                      <p className="text-muted-foreground text-sm">23, 1st Floor Shivanjali Complex, AK Road, Surat, Gujarat</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-4 p-4 rounded-lg border border-border bg-card">
@@ -101,12 +106,18 @@ const Contact = () => {
                   </div>
                 </div>
 
-                <div className="rounded-xl overflow-hidden border border-border bg-card h-64 flex items-center justify-center gradient-border">
-                  <div className="text-center">
-                    <MapPin className="w-12 h-12 text-primary/30 mx-auto mb-3 animate-float" />
-                    <p className="text-muted-foreground text-sm">Google Maps Integration</p>
-                    <p className="text-muted-foreground text-xs mt-1">Coming Soon</p>
-                  </div>
+                <div className="rounded-xl overflow-hidden border border-border bg-card gradient-border">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3720.0!2d72.82!3d21.19!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sSurat%2C+Gujarat!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                    width="100%"
+                    height="256"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Nilkanth Digital Location"
+                    className="w-full h-64"
+                  />
                 </div>
               </div>
             </div>

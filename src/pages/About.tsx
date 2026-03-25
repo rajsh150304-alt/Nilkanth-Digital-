@@ -2,8 +2,9 @@ import Layout from "@/components/Layout";
 import PageHero from "@/components/PageHero";
 import Breadcrumb from "@/components/Breadcrumb";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import { Target, Eye, Award, Users, CheckCircle, Zap, Clock, Shield } from "lucide-react";
+import { Target, Eye, Award, Users, CheckCircle, Zap, Clock, Shield, Camera, Laptop, Printer, PhoneCall, Fingerprint, Tv, Wifi, Wrench, Code } from "lucide-react";
 import teamImg from "@/assets/team.jpg";
+import logo from "@/assets/logo.png";
 
 const About = () => {
   const ref = useScrollReveal();
@@ -28,10 +29,10 @@ const About = () => {
                   Your Trusted IT & Security Partner Since 2018
                 </h2>
                 <p className="text-muted-foreground leading-relaxed mb-4">
-                  Nilkanth Digital is a trusted Surat-based partner for comprehensive technology and security services. Since 2018, we have been delivering reliable, customized solutions for homes, offices, schools, factories, and businesses.
+                  <strong className="text-foreground/90">Nilkanth Digital</strong>, founded by <strong className="text-foreground/90">Mayur Dabhi</strong>, is a trusted Surat-based partner for comprehensive technology and security solutions. Located at <em>23, 1st Floor Shivanjali Complex, AK Road, Surat</em>, we have been serving homes, offices, schools, factories, and businesses since 2018.
                 </p>
                 <p className="text-muted-foreground leading-relaxed mb-4">
-                  We specialize in CCTV installation & maintenance, PC/laptop sales & repairs, smart home automation, fire & safety solutions, server & NAS setup, firewall & networking, and annual maintenance contracts (AMC).
+                  We specialize in <strong className="text-foreground/80">Sales, Repair & Service</strong> — covering CCTV, Computer/Laptop, Printers, Biometric, Intercom, LED TV, Networking Hardware, Software, Fire & Safety, Smart Home, and Annual Maintenance Contracts (AMC).
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
                   Our certified technicians deliver quality service with a strong focus on trust, professionalism, and fast support — ensuring your IT and security needs are met with care.
@@ -53,6 +54,38 @@ const About = () => {
                   </div>
                 ))}
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* What We Deal In */}
+        <section className="py-16 lg:py-24 relative overflow-hidden">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12 reveal">
+              <div className="red-line mx-auto mb-4" />
+              <h2 className="text-3xl md:text-4xl font-heading font-bold">What We Deal In</h2>
+              <p className="text-muted-foreground mt-2">Complete range of IT products & services</p>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+              {[
+                { icon: Laptop, label: "Computer / Laptop" },
+                { icon: Printer, label: "Printers" },
+                { icon: Camera, label: "CCTV" },
+                { icon: Fingerprint, label: "Biometric" },
+                { icon: PhoneCall, label: "Intercom" },
+                { icon: Tv, label: "LED TV" },
+                { icon: Wifi, label: "Networking Hardware" },
+                { icon: Code, label: "Software" },
+                { icon: Wrench, label: "AMC" },
+                { icon: Shield, label: "Fire & Safety" },
+              ].map((item, i) => (
+                <div key={item.label} className={`flex flex-col items-center gap-3 p-5 rounded-xl border border-border bg-card hover-lift card-shine text-center reveal reveal-delay-${(i % 5) + 1}`}>
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                    <item.icon className="w-6 h-6 text-primary" />
+                  </div>
+                  <span className="text-sm font-medium text-foreground/80">{item.label}</span>
+                </div>
+              ))}
             </div>
           </div>
         </section>

@@ -58,8 +58,8 @@ const Navbar = () => {
   const isServiceActive = serviceLinks.some((s) => location.pathname === s.to);
 
   const linkClass = (to: string) =>
-    `px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
-      isActive(to) ? "text-primary" : "text-foreground/70 hover:text-primary"
+    `px-3 py-2 rounded-md text-[15px] font-medium transition-colors duration-200 ${
+      isActive(to) ? "text-primary" : "text-foreground/80 hover:text-primary"
     }`;
 
   return (
@@ -71,12 +71,13 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
-          <Link to="/" className="flex items-center gap-2 group">
-            <img src={logo} alt="Nilkanth Digital" className="w-9 h-9 rounded-lg object-contain" width={36} height={36} />
-            <div className="font-heading font-bold text-base">
-              <span className="text-foreground">Nilkanth</span>{" "}
-              <span className="text-primary">Digital</span>
+        <div className="flex items-center justify-between h-20">
+          <Link to="/" className="flex items-center gap-3 group">
+            <img src={logo} alt="Nilkanth Digital" className="w-12 h-12 rounded-lg object-contain" width={48} height={48} />
+            <div className="font-heading font-bold text-lg leading-tight">
+              <span className="text-foreground">NILKANTH</span>{" "}
+              <span className="text-primary">DIGITAL</span>
+              <div className="text-[9px] text-muted-foreground font-normal tracking-wider">SALES • REPAIR • SERVICE</div>
             </div>
           </Link>
 
@@ -94,24 +95,24 @@ const Navbar = () => {
               onMouseLeave={handleMouseLeave}
             >
               <button
-                className={`flex items-center gap-1 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
-                  isServiceActive ? "text-primary" : "text-foreground/70 hover:text-primary"
+                className={`flex items-center gap-1 px-3 py-2 rounded-md text-[15px] font-medium transition-colors duration-200 ${
+                  isServiceActive ? "text-primary" : "text-foreground/80 hover:text-primary"
                 }`}
               >
                 Services
-                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${serviceOpen ? "rotate-180" : ""}`} />
+                <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${serviceOpen ? "rotate-180" : ""}`} />
               </button>
               <div
                 className={`absolute top-full left-0 pt-1 transition-all duration-200 ${
                   serviceOpen ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-2 pointer-events-none"
                 }`}
               >
-                <div className="w-60 bg-card border border-border rounded-lg shadow-xl py-1.5">
+                <div className="w-64 bg-card border border-border rounded-lg shadow-xl py-2">
                   {serviceLinks.map((link) => (
                     <Link
                       key={link.to}
                       to={link.to}
-                      className={`block px-4 py-2.5 text-sm transition-colors ${
+                      className={`block px-5 py-3 text-sm transition-colors ${
                         isActive(link.to) ? "text-primary bg-primary/5" : "text-foreground/70 hover:text-primary hover:bg-primary/5"
                       }`}
                     >
@@ -132,16 +133,16 @@ const Navbar = () => {
           <div className="flex items-center gap-3">
             <a
               href="tel:+919998994473"
-              className="hidden md:flex items-center gap-2 bg-primary text-primary-foreground px-4 py-2 rounded-lg text-sm font-semibold hover:bg-primary/90 transition-colors duration-200"
+              className="hidden md:flex items-center gap-2 bg-primary text-primary-foreground px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-primary/90 transition-colors duration-200"
             >
-              <Phone className="w-3.5 h-3.5" />
+              <Phone className="w-4 h-4" />
               Call Now
             </a>
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="lg:hidden p-2 text-foreground"
             >
-              {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
         </div>
@@ -154,28 +155,28 @@ const Navbar = () => {
         >
           <div className="pb-4 border-t border-border/30 bg-background">
             {mainLinks.map((link) => (
-              <Link key={link.to} to={link.to} className={`block px-4 py-2.5 text-sm font-medium ${isActive(link.to) ? "text-primary" : "text-foreground/70"}`}>
+              <Link key={link.to} to={link.to} className={`block px-4 py-3 text-[15px] font-medium ${isActive(link.to) ? "text-primary" : "text-foreground/70"}`}>
                 {link.label}
               </Link>
             ))}
             <div className="px-4 py-2 text-xs font-semibold text-muted-foreground uppercase tracking-wider">Services</div>
             {serviceLinks.map((link) => (
-              <Link key={link.to} to={link.to} className={`block px-6 py-2 text-sm ${isActive(link.to) ? "text-primary" : "text-foreground/70"}`}>
+              <Link key={link.to} to={link.to} className={`block px-6 py-2.5 text-sm ${isActive(link.to) ? "text-primary" : "text-foreground/70"}`}>
                 {link.label}
               </Link>
             ))}
             <div className="border-t border-border/30 mt-2 pt-2">
               {otherLinks.map((link) => (
-                <Link key={link.to} to={link.to} className={`block px-4 py-2.5 text-sm font-medium ${isActive(link.to) ? "text-primary" : "text-foreground/70"}`}>
+                <Link key={link.to} to={link.to} className={`block px-4 py-3 text-[15px] font-medium ${isActive(link.to) ? "text-primary" : "text-foreground/70"}`}>
                   {link.label}
                 </Link>
               ))}
             </div>
             <a
               href="tel:+919998994473"
-              className="mx-4 mt-3 flex items-center justify-center gap-2 bg-primary text-primary-foreground px-4 py-2.5 rounded-lg text-sm font-semibold"
+              className="mx-4 mt-3 flex items-center justify-center gap-2 bg-primary text-primary-foreground px-4 py-3 rounded-lg text-sm font-semibold"
             >
-              <Phone className="w-3.5 h-3.5" />
+              <Phone className="w-4 h-4" />
               Call Now
             </a>
           </div>
