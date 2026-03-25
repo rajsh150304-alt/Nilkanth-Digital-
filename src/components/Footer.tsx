@@ -31,14 +31,20 @@ const Footer = () => {
       <div className="container mx-auto px-4 py-16 relative">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div>
-            <Link to="/" className="flex items-center gap-2.5 mb-5">
-              <img src={logo} alt="Nilkanth Digital" className="w-10 h-10 rounded-lg object-contain" width={40} height={40} />
-              <span className="font-heading font-bold text-lg">
-                Nilkanth <span className="text-primary">Digital</span>
-              </span>
+            <Link to="/" className="flex items-center gap-3 mb-5">
+              <img src={logo} alt="Nilkanth Digital" className="w-14 h-14 rounded-lg object-contain" width={56} height={56} />
+              <div>
+                <span className="font-heading font-bold text-lg block leading-tight">
+                  NILKANTH <span className="text-primary">DIGITAL</span>
+                </span>
+                <span className="text-[10px] text-muted-foreground tracking-wider">CCTV & Computer All Accessories</span>
+              </div>
             </Link>
-            <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-              Your trusted Surat-based partner for IT & security solutions since 2018. CCTV, smart home, fire safety, networking, and computer services.
+            <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+              Sales, Repair & Service — Your trusted Surat-based partner for IT & security solutions since 2018.
+            </p>
+            <p className="text-muted-foreground text-sm mb-6">
+              <strong className="text-foreground/80">Mayur Dabhi</strong> — Proprietor
             </p>
             <div className="flex gap-3">
               {[
@@ -91,17 +97,17 @@ const Footer = () => {
                 </div>
                 +91 99989 94473
               </a>
-              <a href="mailto:info@nilkanthdigital.com" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors">
+              <a href="mailto:nilkanth.digital@hotmail.com" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors">
                 <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
                   <Mail className="w-4 h-4 text-primary" />
                 </div>
-                info@nilkanthdigital.com
+                nilkanth.digital@hotmail.com
               </a>
               <div className="flex items-start gap-3 text-sm text-muted-foreground">
                 <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                   <MapPin className="w-4 h-4 text-primary" />
                 </div>
-                Surat, Gujarat, India
+                23, 1st Floor Shivanjali Complex, AK Road, Surat, Gujarat
               </div>
             </div>
           </div>
@@ -109,7 +115,7 @@ const Footer = () => {
 
         <div className="border-t border-border/50 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
           <p>© {new Date().getFullYear()} Nilkanth Digital. All rights reserved.</p>
-          <p>IT & Security Solutions Since 2018</p>
+          <p>Sales, Repair & Service Since 2018</p>
         </div>
       </div>
     </footer>
