@@ -39,10 +39,10 @@ const Footer = () => {
                 <span className="block text-xs text-muted-foreground mt-0.5">CCTV & Computer All Accessories</span>
               </div>
             </Link>
-            <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+            <p className="text-muted-foreground text-base leading-relaxed mb-4">
               Sales, Repair & Service — Your trusted Surat-based partner for IT & security solutions since 2018.
             </p>
-            <p className="text-muted-foreground text-sm mb-6">
+            <p className="text-muted-foreground text-base mb-6">
               <strong className="text-foreground/80">Mayur Dabhi</strong> — Proprietor
             </p>
             <div className="flex gap-3">
@@ -60,11 +60,11 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="font-heading font-semibold mb-5">Our Services</h3>
+            <h3 className="font-heading font-semibold text-lg mb-5">Our Services</h3>
             <ul className="space-y-2.5">
               {services.map((s) => (
                 <li key={s.to}>
-                  <Link to={s.to} className="text-sm text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-1 group">
+                  <Link to={s.to} className="text-base text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-1 group">
                     <ArrowRight className="w-3 h-3 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all" />
                     {s.label}
                   </Link>
@@ -74,11 +74,11 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="font-heading font-semibold mb-5">Quick Links</h3>
+            <h3 className="font-heading font-semibold text-lg mb-5">Quick Links</h3>
             <ul className="space-y-3">
               {quickLinks.map((l) => (
                 <li key={l.to}>
-                  <Link to={l.to} className="text-sm text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-1 group">
+                  <Link to={l.to} className="text-base text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-1 group">
                     <ArrowRight className="w-3 h-3 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all" />
                     {l.label}
                   </Link>
@@ -88,21 +88,21 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="font-heading font-semibold mb-5">Contact Info</h3>
+            <h3 className="font-heading font-semibold text-lg mb-5">Contact Info</h3>
             <div className="space-y-4">
-              <a href="tel:+919998994473" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors">
+              <a href="tel:+919998994473" className="flex items-center gap-3 text-base text-muted-foreground hover:text-primary transition-colors">
                 <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
                   <Phone className="w-4 h-4 text-primary" />
                 </div>
                 +91 99989 94473
               </a>
-              <a href="mailto:nilkanth.digital@hotmail.com" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors">
+              <a href="mailto:nilkanth.digital@hotmail.com" className="flex items-center gap-3 text-base text-muted-foreground hover:text-primary transition-colors">
                 <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
                   <Mail className="w-4 h-4 text-primary" />
                 </div>
                 nilkanth.digital@hotmail.com
               </a>
-              <div className="flex items-start gap-3 text-sm text-muted-foreground">
+              <div className="flex items-start gap-3 text-base text-muted-foreground">
                 <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                   <MapPin className="w-4 h-4 text-primary" />
                 </div>
@@ -112,7 +112,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-border/50 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
+        <div className="border-t border-border/50 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-base text-muted-foreground">
           <p>© {new Date().getFullYear()} Nilkanth Digital. All rights reserved.</p>
           <p>Sales, Repair & Service Since 2018</p>
         </div>
