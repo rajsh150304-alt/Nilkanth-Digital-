@@ -32,12 +32,11 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div>
             <Link to="/" className="flex items-center gap-3 mb-5">
-              <img src={logo} alt="Nilkanth Digital" className="w-14 h-14 rounded-lg object-contain" width={56} height={56} />
+              <img src={logo} alt="Nilkanth Digital" className="w-16 h-16 rounded-lg object-contain" width={64} height={64} />
               <div>
-                <span className="font-heading font-bold text-lg block leading-tight">
-                  NILKANTH <span className="text-primary">DIGITAL</span>
-                </span>
-                <span className="text-[10px] text-muted-foreground tracking-wider">CCTV & Computer All Accessories</span>
+                <span className="font-heading font-extrabold text-xl block leading-tight tracking-tight">NILKANTH</span>
+                <span className="font-heading font-bold text-sm text-primary tracking-widest">DIGITAL</span>
+                <span className="block text-xs text-muted-foreground mt-0.5">CCTV & Computer All Accessories</span>
               </div>
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed mb-4">
