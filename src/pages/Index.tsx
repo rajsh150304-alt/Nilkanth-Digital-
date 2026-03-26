@@ -165,57 +165,47 @@ const Index = () => {
         <OrbitRing />
 
         <div className="container mx-auto px-4 relative z-10 pt-28 md:pt-32">
-          <div className="max-w-3xl">
-            {/* Logo badge */}
-            <div className="inline-flex items-center gap-3 bg-primary/10 backdrop-blur-md border border-primary/20 rounded-full px-6 py-3 mb-8 animate-in">
-              <div className="w-2.5 h-2.5 rounded-full bg-primary animate-pulse" />
-              <span className="text-foreground/90 font-medium text-sm md:text-base">Trusted IT & Security Partner Since 2018 — Surat, Gujarat</span>
+          <div className="max-w-2xl">
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2.5 bg-primary/10 backdrop-blur-md border border-primary/20 rounded-full px-5 py-2.5 mb-6 animate-in">
+              <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+              <span className="text-foreground/90 font-medium text-sm">Trusted IT & Security Partner Since 2018 — Surat</span>
             </div>
 
             {/* Heading */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-extrabold text-foreground leading-[1.05] mb-6 animate-in animate-in-delay-1">
-              Protect. Connect.
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-heading font-extrabold text-foreground leading-[1.1] mb-5 animate-in animate-in-delay-1">
+              Your Complete
               <br />
-              <span className="relative inline-block">
-                <span className="text-gradient">Grow.</span>
-                <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 120 12" fill="none">
-                  <path d="M2 8C20 2 60 2 118 8" stroke="hsl(var(--primary))" strokeWidth="3" strokeLinecap="round" opacity="0.6" />
-                </svg>
-              </span>
+              <span className="text-gradient">IT & Security</span> Partner
             </h1>
 
-            {/* Tagline */}
-            <p className="text-xl md:text-2xl text-foreground/70 mb-3 font-heading font-bold tracking-wide animate-in animate-in-delay-2">
-              Complete IT & Security Solutions
-            </p>
-
             {/* Subtitle */}
-            <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-10 leading-relaxed max-w-2xl animate-in animate-in-delay-2">
-              From CCTV cameras to smart homes, laptops to servers — we handle your complete technology needs. Sales, Repair & Service for homes, offices & businesses across Surat.
+            <p className="text-base md:text-lg text-muted-foreground mb-8 leading-relaxed max-w-xl animate-in animate-in-delay-2">
+              CCTV cameras, smart homes, laptops, servers & networking — Sales, Repair & Service for homes, offices & businesses across Surat.
             </p>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-wrap gap-4 mb-8 animate-in animate-in-delay-3">
+            {/* CTA */}
+            <div className="flex flex-wrap gap-3 mb-6 animate-in animate-in-delay-3">
               <Link
                 to="/contact"
-                className="group inline-flex items-center gap-2.5 bg-primary text-primary-foreground px-8 py-4 rounded-xl font-semibold text-base md:text-lg btn-shine hover:shadow-[0_0_60px_hsl(var(--primary)/0.5)] hover:scale-[1.03] transition-all duration-300"
+                className="group inline-flex items-center gap-2 bg-primary text-primary-foreground px-7 py-3.5 rounded-xl font-semibold text-sm md:text-base btn-shine hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:scale-[1.02] transition-all duration-300"
               >
                 Get Free Quote
-                <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1.5" />
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </Link>
               <a
                 href="tel:+919998994473"
-                className="group inline-flex items-center gap-3 bg-foreground/5 backdrop-blur-md border border-border/50 px-8 py-4 rounded-xl font-semibold text-base md:text-lg hover:bg-primary/10 hover:border-primary/30 transition-all duration-300"
+                className="group inline-flex items-center gap-2.5 bg-foreground/5 backdrop-blur-md border border-border/50 px-7 py-3.5 rounded-xl font-semibold text-sm md:text-base hover:bg-primary/10 hover:border-primary/30 transition-all duration-300"
               >
-                <div className="w-10 h-10 rounded-full bg-primary/15 flex items-center justify-center pulse-glow">
-                  <Phone className="w-5 h-5 text-primary" />
+                <div className="w-8 h-8 rounded-full bg-primary/15 flex items-center justify-center pulse-glow">
+                  <Phone className="w-4 h-4 text-primary" />
                 </div>
                 +91 99989 94473
               </a>
             </div>
 
             {/* Trust badges */}
-            <div className="flex flex-wrap gap-4 md:gap-6 text-sm md:text-base text-muted-foreground animate-in animate-in-delay-4">
+            <div className="flex flex-wrap gap-4 text-sm text-muted-foreground animate-in animate-in-delay-4">
               {[
                 { icon: CheckCircle, text: "Free Consultation" },
                 { icon: Zap, text: "Same Day Service" },

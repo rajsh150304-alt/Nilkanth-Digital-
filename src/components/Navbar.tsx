@@ -73,12 +73,11 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           <Link to="/" className="flex items-center gap-3 group">
-            <img src={logo} alt="Nilkanth Digital" className="w-14 h-14 md:w-16 md:h-16 rounded-lg object-contain" width={64} height={64} />
-            <div className="font-heading leading-tight">
-              <span className="text-foreground font-extrabold text-xl md:text-2xl tracking-tight">NILKANTH</span>
-              <br />
-              <span className="text-primary font-bold text-sm md:text-base tracking-widest">DIGITAL</span>
-            </div>
+            <img src={logo} alt="Nilkanth Digital" className="w-12 h-12 md:w-14 md:h-14 rounded-lg object-contain" width={56} height={56} />
+            <span className="font-heading leading-none">
+              <span className="text-foreground font-extrabold text-lg md:text-xl tracking-tight">NILKANTH</span>{" "}
+              <span className="text-primary font-bold text-lg md:text-xl tracking-tight">DIGITAL</span>
+            </span>
           </Link>
 
           <div className="hidden lg:flex items-center gap-1">
