@@ -323,3 +323,29 @@
 .particle {
   animation: particleFloat 20s ease-in-out infinite;
 }
+
+/* Orbit ring animations */
+@keyframes orbitSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes orbitSpinReverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+.orbit-spin {
+  animation: orbitSpin 20s linear infinite;
+}
+.orbit-spin-reverse {
+  animation: orbitSpinReverse 25s linear infinite;
+}
+
+/* Pulse glow red for center orbit logo */
+@keyframes pulseGlowRed {
+  0%, 100% { box-shadow: 0 0 0 0 hsla(0, 80%, 50%, 0.4); }
+  50% { box-shadow: 0 0 30px 10px hsla(0, 80%, 50%, 0); }
+}
+.pulse-glow-red {
+  animation: pulseGlowRed 3s ease-in-out infinite;
+}

@@ -73,11 +73,11 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           <Link to="/" className="flex items-center gap-3 group">
-            <img src={logo} alt="Nilkanth Digital" className="w-12 h-12 rounded-lg object-contain" width={48} height={48} />
-            <div className="font-heading font-bold text-lg leading-tight">
-              <span className="text-foreground">NILKANTH</span>{" "}
-              <span className="text-primary">DIGITAL</span>
-              <div className="text-[9px] text-muted-foreground font-normal tracking-wider">SALES • REPAIR • SERVICE</div>
+            <img src={logo} alt="Nilkanth Digital" className="w-14 h-14 md:w-16 md:h-16 rounded-lg object-contain" width={64} height={64} />
+            <div className="font-heading leading-tight">
+              <span className="text-foreground font-extrabold text-xl md:text-2xl tracking-tight">NILKANTH</span>
+              <br />
+              <span className="text-primary font-bold text-sm md:text-base tracking-widest">DIGITAL</span>
             </div>
           </Link>
 
