@@ -232,6 +232,9 @@ const Index = () => {
                 </span>
               ))}
             </div>
+
+            {/* Mobile floating service icons */}
+            <MobileServiceIcons />
           </div>
         </div>
       </section>
