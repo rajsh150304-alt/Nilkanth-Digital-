@@ -211,8 +211,6 @@ const Index = () => {
               ))}
             </div>
 
-            {/* Mobile floating service icons */}
-            <MobileServiceIcons />
           </div>
         </div>
       </section>
