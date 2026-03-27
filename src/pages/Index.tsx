@@ -137,7 +137,7 @@ const Index = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section className="relative min-h-screen flex items-center overflow-hidden">
+      <section className="relative min-h-[110vh] md:min-h-screen flex items-start md:items-center overflow-hidden pb-[280px] sm:pb-[320px] md:pb-0">
         {/* Background */}
         <div className="absolute inset-0">
           <img src={heroBg} alt="Nilkanth Digital IT Solutions" className="w-full h-full object-cover scale-105" loading="eager" />
