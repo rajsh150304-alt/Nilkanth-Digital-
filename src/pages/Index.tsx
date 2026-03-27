@@ -101,17 +101,12 @@ const FloatingParticles = () => (
   </div>
 );
 
-/* Rotating 3D-style orbit ring */
+/* Rotating 3D-style orbit ring - desktop */
 const OrbitRing = () => (
   <div className="absolute right-[5%] top-1/2 -translate-y-1/2 w-[400px] h-[400px] lg:w-[550px] lg:h-[550px] hidden lg:block">
-    {/* Outer ring */}
     <div className="absolute inset-0 rounded-full border border-primary/10 orbit-spin" />
-    {/* Middle ring */}
     <div className="absolute inset-8 rounded-full border border-primary/15 orbit-spin-reverse" />
-    {/* Inner ring */}
     <div className="absolute inset-16 rounded-full border border-primary/20 orbit-spin" style={{ animationDuration: "12s" }} />
-    
-    {/* Orbiting icons */}
     <div className="absolute inset-0 orbit-spin">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-xl bg-card border border-primary/30 flex items-center justify-center shadow-lg shadow-primary/10">
         <Camera className="w-5 h-5 text-primary" />
@@ -128,13 +123,33 @@ const OrbitRing = () => (
         <Laptop className="w-5 h-5 text-primary" />
       </div>
     </div>
-
-    {/* Center logo */}
     <div className="absolute inset-0 flex items-center justify-center">
       <div className="w-24 h-24 rounded-2xl bg-card/90 border border-primary/30 flex items-center justify-center shadow-2xl shadow-primary/20 pulse-glow-red">
         <img src={logo} alt="" className="w-16 h-16 object-contain" />
       </div>
     </div>
+  </div>
+);
+
+/* Mobile floating service icons */
+const MobileServiceIcons = () => (
+  <div className="flex lg:hidden justify-center gap-3 mt-8 animate-in animate-in-delay-4">
+    {[
+      { icon: Camera, label: "CCTV" },
+      { icon: Laptop, label: "Laptop" },
+      { icon: Wifi, label: "Network" },
+      { icon: Shield, label: "Security" },
+      { icon: Home, label: "Smart Home" },
+      { icon: Flame, label: "Fire Safety" },
+    ].map((item, i) => (
+      <div
+        key={item.label}
+        className="w-12 h-12 rounded-xl bg-card/80 backdrop-blur border border-primary/20 flex items-center justify-center shadow-lg shadow-primary/10 animate-float"
+        style={{ animationDelay: `${i * 0.3}s` }}
+      >
+        <item.icon className="w-5 h-5 text-primary" />
+      </div>
+    ))}
   </div>
 );
 
