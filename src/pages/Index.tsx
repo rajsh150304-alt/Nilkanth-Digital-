@@ -101,31 +101,38 @@ const FloatingParticles = () => (
   </div>
 );
 
-/* Rotating 3D-style orbit ring - responsive */
+/* Rotating 3D-style orbit ring */
 const OrbitRing = () => (
-  <div className="absolute right-1/2 translate-x-1/2 bottom-8 w-[220px] h-[220px] sm:w-[280px] sm:h-[280px] md:bottom-auto md:right-[5%] md:translate-x-0 md:top-1/2 md:-translate-y-1/2 md:w-[400px] md:h-[400px] lg:w-[550px] lg:h-[550px]">
+  <div className="absolute right-[5%] top-1/2 -translate-y-1/2 w-[400px] h-[400px] lg:w-[550px] lg:h-[550px] hidden lg:block">
+    {/* Outer ring */}
     <div className="absolute inset-0 rounded-full border border-primary/10 orbit-spin" />
-    <div className="absolute inset-4 md:inset-8 rounded-full border border-primary/15 orbit-spin-reverse" />
-    <div className="absolute inset-8 md:inset-16 rounded-full border border-primary/20 orbit-spin" style={{ animationDuration: "12s" }} />
+    {/* Middle ring */}
+    <div className="absolute inset-8 rounded-full border border-primary/15 orbit-spin-reverse" />
+    {/* Inner ring */}
+    <div className="absolute inset-16 rounded-full border border-primary/20 orbit-spin" style={{ animationDuration: "12s" }} />
+    
+    {/* Orbiting icons */}
     <div className="absolute inset-0 orbit-spin">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-9 h-9 md:w-12 md:h-12 rounded-xl bg-card border border-primary/30 flex items-center justify-center shadow-lg shadow-primary/10">
-        <Camera className="w-4 h-4 md:w-5 md:h-5 text-primary" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-xl bg-card border border-primary/30 flex items-center justify-center shadow-lg shadow-primary/10">
+        <Camera className="w-5 h-5 text-primary" />
       </div>
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-9 h-9 md:w-12 md:h-12 rounded-xl bg-card border border-primary/30 flex items-center justify-center shadow-lg shadow-primary/10">
-        <Wifi className="w-4 h-4 md:w-5 md:h-5 text-primary" />
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-12 h-12 rounded-xl bg-card border border-primary/30 flex items-center justify-center shadow-lg shadow-primary/10">
+        <Wifi className="w-5 h-5 text-primary" />
       </div>
     </div>
     <div className="absolute inset-0 orbit-spin-reverse">
-      <div className="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-1/2 w-9 h-9 md:w-12 md:h-12 rounded-xl bg-card border border-primary/30 flex items-center justify-center shadow-lg shadow-primary/10">
-        <Shield className="w-4 h-4 md:w-5 md:h-5 text-primary" />
+      <div className="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-1/2 w-12 h-12 rounded-xl bg-card border border-primary/30 flex items-center justify-center shadow-lg shadow-primary/10">
+        <Shield className="w-5 h-5 text-primary" />
       </div>
-      <div className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/2 w-9 h-9 md:w-12 md:h-12 rounded-xl bg-card border border-primary/30 flex items-center justify-center shadow-lg shadow-primary/10">
-        <Laptop className="w-4 h-4 md:w-5 md:h-5 text-primary" />
+      <div className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/2 w-12 h-12 rounded-xl bg-card border border-primary/30 flex items-center justify-center shadow-lg shadow-primary/10">
+        <Laptop className="w-5 h-5 text-primary" />
       </div>
     </div>
+
+    {/* Center logo */}
     <div className="absolute inset-0 flex items-center justify-center">
-      <div className="w-16 h-16 md:w-24 md:h-24 rounded-2xl bg-card/90 border border-primary/30 flex items-center justify-center shadow-2xl shadow-primary/20 pulse-glow-red">
-        <img src={logo} alt="" className="w-10 h-10 md:w-16 md:h-16 object-contain" />
+      <div className="w-24 h-24 rounded-2xl bg-card/90 border border-primary/30 flex items-center justify-center shadow-2xl shadow-primary/20 pulse-glow-red">
+        <img src={logo} alt="" className="w-16 h-16 object-contain" />
       </div>
     </div>
   </div>
@@ -137,7 +144,7 @@ const Index = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section className="relative min-h-[110vh] md:min-h-screen flex items-start md:items-center overflow-hidden pb-[280px] sm:pb-[320px] md:pb-0">
+      <section className="relative min-h-screen flex items-center overflow-hidden">
         {/* Background */}
         <div className="absolute inset-0">
           <img src={heroBg} alt="Nilkanth Digital IT Solutions" className="w-full h-full object-cover scale-105" loading="eager" />
@@ -210,7 +217,6 @@ const Index = () => {
                 </span>
               ))}
             </div>
-
           </div>
         </div>
       </section>
