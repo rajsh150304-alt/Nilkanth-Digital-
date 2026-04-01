@@ -5,14 +5,29 @@ import Breadcrumb from "@/components/Breadcrumb";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { Phone, Mail, MapPin, Clock, Send, MessageCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const Contact = () => {
   const { toast } = useToast();
   const [form, setForm] = useState({ name: "", phone: "", email: "", service: "", message: "" });
+  const [loading, setLoading] = useState(false);
   const ref = useScrollReveal();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setLoading(true);
+    const { error } = await supabase.from("contact_inquiries").insert({
+      name: form.name.trim(),
+      phone: form.phone.trim() || null,
+      email: form.email.trim() || null,
+      service: form.service || null,
+      message: form.message.trim() || null,
+    });
+    setLoading(false);
+    if (error) {
+      toast({ title: "Error", description: "Failed to send message. Please try again.", variant: "destructive" });
+      return;
+    }
     toast({ title: "Message Sent!", description: "We'll get back to you within 24 hours." });
     setForm({ name: "", phone: "", email: "", service: "", message: "" });
   };
