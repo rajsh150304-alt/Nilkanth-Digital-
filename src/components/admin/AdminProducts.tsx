@@ -9,7 +9,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Plus, Pencil, Trash2 } from "lucide-react";
+import { Plus, Pencil, Trash2, Upload, Image } from "lucide-react";
 
 interface Product {
   id: string;
@@ -29,6 +29,7 @@ const AdminProducts = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [open, setOpen] = useState(false);
   const [editing, setEditing] = useState<Product | null>(null);
+  const [uploading, setUploading] = useState(false);
   const [form, setForm] = useState({
     name: "", category: "Laptops", brand: "", price_min: "", price_max: "",
     description: "", image_url: "", in_stock: true
@@ -60,6 +61,38 @@ const AdminProducts = () => {
       in_stock: product.in_stock ?? true,
     });
     setOpen(true);
+  };
+
+  const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    if (!file.type.startsWith("image/")) {
+      toast({ title: "Error", description: "Please select an image file", variant: "destructive" });
+      return;
+    }
+
+    if (file.size > 5 * 1024 * 1024) {
+      toast({ title: "Error", description: "Image must be under 5MB", variant: "destructive" });
+      return;
+    }
+
+    setUploading(true);
+    const ext = file.name.split(".").pop();
+    const fileName = `${Date.now()}-${Math.random().toString(36).slice(2)}.${ext}`;
+
+    const { error } = await supabase.storage.from("product-images").upload(fileName, file);
+
+    if (error) {
+      toast({ title: "Upload failed", description: error.message, variant: "destructive" });
+      setUploading(false);
+      return;
+    }
+
+    const { data: urlData } = supabase.storage.from("product-images").getPublicUrl(fileName);
+    setForm(prev => ({ ...prev, image_url: urlData.publicUrl }));
+    toast({ title: "Image uploaded!" });
+    setUploading(false);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -142,10 +175,48 @@ const AdminProducts = () => {
                   <Input type="number" value={form.price_max} onChange={(e) => setForm({ ...form, price_max: e.target.value })} className="bg-secondary border-border" />
                 </div>
               </div>
+
+              {/* Image Upload Section */}
               <div className="space-y-2">
-                <Label className="text-foreground">Image URL</Label>
-                <Input value={form.image_url} onChange={(e) => setForm({ ...form, image_url: e.target.value })} placeholder="https://..." className="bg-secondary border-border" />
+                <Label className="text-foreground">Product Image</Label>
+                <div className="space-y-3">
+                  {form.image_url && (
+                    <div className="relative w-full h-32 rounded-lg overflow-hidden border border-border">
+                      <img src={form.image_url} alt="Preview" className="w-full h-full object-cover" />
+                      <button
+                        type="button"
+                        onClick={() => setForm(prev => ({ ...prev, image_url: "" }))}
+                        className="absolute top-1 right-1 bg-destructive text-destructive-foreground rounded-full w-6 h-6 flex items-center justify-center text-xs"
+                      >
+                        ×
+                      </button>
+                    </div>
+                  )}
+                  <div className="flex gap-2">
+                    <label className="flex-1 cursor-pointer">
+                      <div className={`flex items-center justify-center gap-2 px-4 py-2.5 rounded-md border border-dashed border-border bg-secondary text-muted-foreground hover:text-foreground hover:border-primary transition-colors ${uploading ? "opacity-50 pointer-events-none" : ""}`}>
+                        {uploading ? (
+                          <span className="animate-spin h-4 w-4 border-2 border-primary border-t-transparent rounded-full" />
+                        ) : (
+                          <Upload className="h-4 w-4" />
+                        )}
+                        <span className="text-sm">{uploading ? "Uploading..." : "Upload Image"}</span>
+                      </div>
+                      <input type="file" accept="image/*" onChange={handleImageUpload} className="hidden" disabled={uploading} />
+                    </label>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs text-muted-foreground">or paste URL:</span>
+                    <Input
+                      value={form.image_url}
+                      onChange={(e) => setForm({ ...form, image_url: e.target.value })}
+                      placeholder="https://..."
+                      className="bg-secondary border-border text-sm flex-1"
+                    />
+                  </div>
+                </div>
               </div>
+
               <div className="space-y-2">
                 <Label className="text-foreground">Description</Label>
                 <Textarea value={form.description} onChange={(e) => setForm({ ...form, description: e.target.value })} className="bg-secondary border-border" />
@@ -169,6 +240,7 @@ const AdminProducts = () => {
             <Table>
               <TableHeader>
                 <TableRow className="border-border">
+                  <TableHead className="text-muted-foreground">Image</TableHead>
                   <TableHead className="text-muted-foreground">Name</TableHead>
                   <TableHead className="text-muted-foreground">Category</TableHead>
                   <TableHead className="text-muted-foreground">Brand</TableHead>
@@ -180,6 +252,15 @@ const AdminProducts = () => {
               <TableBody>
                 {products.map((product) => (
                   <TableRow key={product.id} className="border-border">
+                    <TableCell>
+                      {product.image_url ? (
+                        <img src={product.image_url} alt={product.name} className="w-12 h-12 rounded object-cover" />
+                      ) : (
+                        <div className="w-12 h-12 rounded bg-secondary flex items-center justify-center">
+                          <Image className="h-5 w-5 text-muted-foreground" />
+                        </div>
+                      )}
+                    </TableCell>
                     <TableCell className="text-foreground font-medium">{product.name}</TableCell>
                     <TableCell className="text-muted-foreground">{product.category}</TableCell>
                     <TableCell className="text-muted-foreground">{product.brand || "—"}</TableCell>
